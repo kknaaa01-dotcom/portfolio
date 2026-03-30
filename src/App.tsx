@@ -396,12 +396,12 @@ const App = () => {
                 <Home size={14} /> <span>홈으로 이동</span>
             </button>
             <div className="flex items-center gap-3">
-              <Mail size={15} className="text-[#94A3B8]"/> 
               <span className="font-sans tracking-tight text-[#1E293B]">{profileData.contact.email}</span>
+              <Mail size={15} className="text-[#94A3B8]"/> 
             </div>
             <div className="flex items-start gap-3 text-right max-w-[320px]">
-              <MapPin size={15} className="text-[#94A3B8] shrink-0 mt-1"/> 
               <span className="leading-tight whitespace-pre-line">{profileData.contact.location}</span>
+              <MapPin size={15} className="text-[#94A3B8] shrink-0 mt-1"/> 
             </div>
           </div>
         </header>
