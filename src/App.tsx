@@ -1,0 +1,780 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  User, 
+  Briefcase, 
+  Award, 
+  BarChart3, 
+  MessageSquare, 
+  Wrench, 
+  FileText, 
+  CheckCircle2, 
+  ChevronRight, 
+  TrendingUp, 
+  Code, 
+  Lightbulb, 
+  Users, 
+  Zap, 
+  Database, 
+  Star, 
+  GraduationCap, 
+  MapPin, 
+  Smile, 
+  Heart, 
+  Mail, 
+  Phone, 
+  Calendar,
+  Camera,
+  Layers,
+  Cpu,
+  BadgeCheck,
+  BookOpen,
+  Flag,
+  Target,
+  Rocket,
+  ShieldCheck,
+  RefreshCw,
+  LayoutGrid,
+  Globe,
+  CreditCard,
+  UtensilsCrossed,
+  Truck,
+  Building2,
+  Handshake,
+  Check,
+  School,
+  ArrowRight,
+  Home
+} from 'lucide-react';
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('profile');
+  const [showCover, setShowCover] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const handleNavigate = (tabId) => {
+    setActiveTab(tabId);
+    setShowCover(false);
+  };
+
+  const profileData = {
+    name: "김나경",
+    role: "BD OPS",
+    subRole: "영업지원 및 사업개발 지원",
+    contact: {
+      phone: "010-8628-5784",
+      email: "kknaaa00@naver.com",
+      location: "서울특별시 동작구\n남부순환로 265나길 27 (사당동)"
+    },
+    summaryPoints: [
+      {
+        title: "타인을 돕고자 하는 진심을 '시스템'으로 치환합니다.",
+        desc: "동료들의 업무 효율을 높이기 위해 데이터와 프로세스를 정리하고 자동화 구조를 설계하는 태도가 저의 가장 큰 기획력입니다."
+      },
+      {
+        title: "데이터로 조직의 언어를 연결하는 중간 조율자입니다.",
+        desc: "SQL 기반의 데이터 리터러시를 활용해 사업부의 니즈를 데이터로 증명하며 R&D팀과의 협업 리소스를 획기적으로 절감합니다."
+      },
+      {
+        title: "비즈니스의 안정성과 수익성을 동시에 고려합니다.",
+        desc: "단순 행정 지원을 넘어 예산 흐름과 운영 체계를 재설계하여 사업의 구조적 안정화를 이끌어낸 실무 경험을 보유하고 있습니다."
+      }
+    ],
+    keywords: ["제휴 파트너사 관리", "고객사 문의 대응", "B2G 사업 용역 관리", "영업 오퍼레이션 지원", "SQL 데이터 분석", "업무 프로세스 자동화"],
+    profileImageUrl: "/user_uploaded_image.jpg" // Relative path for the uploaded image
+  };
+
+  const careerHistory = [
+    {
+      title: "사업개발팀 BD Ops",
+      company: "(주)플레이스앤 (네이버 계열사)",
+      url: "https://www.placen.kr/",
+      period: "2025.09 - 현재",
+      description: "영업 오퍼레이션 지원 / 제휴 파트너사 관리 / B2G 사업 운영 지원",
+      tasks: [
+        "다수 B2G 사업 제안, 계약, 운영 및 정산 전반 관리",
+        "SQL 및 Redash 데이터 직접 추출·가공으로 정확도 개선",
+        "문서 구조화 및 매뉴얼 정립을 통한 팀 생산성 향상",
+        "예산 관리 및 프로세스 개선으로 사업 안정화 및 흑자 달성"
+      ]
+    },
+    {
+      title: "B2B사업팀/B2B영업팀 사원",
+      company: "(주)한국공간데이터",
+      url: "https://dev-bm.koreaspacedata.com/",
+      period: "2025.05 - 2025.09",
+      description: "B2B 영업 지원 및 마케팅/신규 리드 발굴",
+      tasks: [
+        "협업 툴 활용 고객 커뮤니케이션 및 운영 전반 지원",
+        "맞춤 광고 콘텐츠 기획 및 마케팅 성과 분석 리포트 제작",
+        "타겟 분석 기반 콜드콜 및 제안 메일로 영업 기회 확대",
+        "업무 매뉴얼 정리 및 정보 공유 등 행정 프로세스 효율화"
+      ]
+    },
+    {
+      title: "만 5세반 담임교사",
+      company: "카카오 늘예솔어린이집",
+      period: "2024.03 - 2025.03",
+      description: "보육 프로그램 기획 및 행정 관리, 자산 관리",
+      tasks: [
+        "연간·월간 교육 계획 수립 및 대규모 원내 행사 총괄 기획·인솔",
+        "ITQ·GTQ 기반 수업 자료 제작 및 행정 협업 체계화",
+        "보육프로그램 공모전 수상 및 ESG 실천 우수 사례 선정",
+        "맞춤형 지도와 상담을 통한 신뢰 기반 교육 관계 형성"
+      ]
+    }
+  ];
+
+  const projectData = [
+    {
+      category: "네이버 플레이스",
+      icon: UtensilsCrossed,
+      title: "네이버 예약 영업대행 및 기획전 관리",
+      impact: "호텔/다이닝 세일즈 가속화 및 성과 리포팅",
+      details: [
+        "인기 식당 및 파인다이닝 대상 예약 프로세스 관리",
+        "미식 셀렉션 호텔뷔페 기획전 입점 프로세스 리딩",
+        "영업 리드 기반의 입점 가입 준수 여부 정밀 검수",
+        "기획전 성과 데이터 모니터링 및 영업 현장 피드백"
+      ]
+    },
+    {
+      category: "네이버 파이낸셜",
+      icon: CreditCard,
+      title: "네이버 파이낸셜 '커넥트' 단말기 영업 관리",
+      impact: "결제 단말기 도입 활성화 및 정산 체계화",
+      details: [
+        "일반·인기 식당 대상 결제 단말기 오퍼레이션 전담",
+        "단말기 도입 계약서 검토, 날인 관리 및 활성화 병목 제거",
+        "영업 인력별 유입 리드 분석 및 기여도 데이터 구축",
+        "플랫폼사-영업 현장 간 가교 역할로 단말기 공급 체계 유지"
+      ]
+    },
+    {
+      category: "공공 사업 (B2G)",
+      icon: ShieldCheck,
+      title: "B2G 공공 사업 제안·입찰 및 수주 운영",
+      impact: "입찰을 통한 사업 수주 및 안정적 운영",
+      targets: [
+        "경상북도경제진흥원 '2025 K-외식산업 기반구축 사업'",
+        "경상북도경제진흥원 '2025년 경영혁신 외식서비스 지원 사업'",
+        "소상공인시장진흥공단 '2026년 스마트상점 기술보급 사업'",
+        "대전서구청 '2026 제로웨이스트 카페로드 적립서비스 운영'"
+      ],
+      details: [
+        "공공기관 용역 입찰 참여 및 최종 사업 수주 달성",
+        "제안서 작성부터 청구, 정산, 보고 전 과정 리딩",
+        "사업 관련 파트너사 커뮤니케이션 및 협업 관리",
+        "실시간 손익 대시보드 구축으로 예산 리스크 관리"
+      ]
+    },
+    {
+      category: "영업 파트너십",
+      icon: Handshake,
+      title: "POS 파트너 제휴 및 영업 채널 확장",
+      impact: "신규 리드 채널 확보 및 파트너십 강화",
+      details: [
+        "스마트로·바로고·페이앤 등 6개 POS사 제휴 관리",
+        "파트너사별 수수료 정산 및 데이터 검증 체계 책임",
+        "채널별 영업 데이터 수집 및 가공을 통한 지표 분석",
+        "협업 툴 활용 파트너사 성과 실시간 공유 체계 구축"
+      ]
+    },
+    {
+      category: "핵심 브랜드 관리 (KA)",
+      icon: Building2,
+      title: "대형 브랜드(KA) 프랜차이즈 통합 관리",
+      impact: "나이키·신세계 등 핵심 고객사 신뢰 확보",
+      details: [
+        "나이키·신세계·무신사·명륜진사갈비 핵심 브랜드 관리",
+        "대형 고객사별 맞춤형 솔루션 제안 및 정산 데이터화",
+        "브랜드 특이사항 선제 대응 및 고객사 만족도 제고",
+        "성과 지표 분석 기반의 정기 리포트 발행 및 조율"
+      ]
+    },
+    {
+      category: "신규 사업 확장 (물류센터)",
+      icon: Truck,
+      title: "쿠팡·컬리 물류센터 전용 솔루션 오퍼레이션",
+      impact: "물류 최적화 시스템 운영 지원 및 데이터 연동",
+      details: [
+        "물류센터 전용 웨이팅 계약 체결 및 운영 전반 관리",
+        "물류센터별 서비스 신규 계약 시 스팟 개설 및 지원",
+        "물류 특화 솔루션의 월 단위 정산 및 데이터 연동 관리",
+        "사업-개발부 사이의 정밀한 데이터 가이드라인 정립"
+      ]
+    }
+  ];
+
+  const skills = [
+    { name: "SQL (Redash)", IconComp: Database, iconColor: "text-[#00A9E0]", desc: "직접 Query 추출 및 데이터 검증 가능" },
+    { name: "Excel/Google Sheets", IconComp: FileText, iconColor: "text-[#00C73C]", desc: "복잡한 손익 대시보드 및 자동화 시트 구축" },
+    { name: "Google Apps Script", IconComp: Code, iconColor: "text-[#10B981]", desc: "반복 행정 업무 자동화 시스템 설계" },
+    { name: "Python (RPA/Macro)", IconComp: Cpu, iconColor: "text-[#334155]", desc: "반복 업무 자동화 및 웹 데이터 크롤링 활용" },
+    { name: "협업 도구 (Notion/Slack)", IconComp: Layers, iconColor: "text-[#6366F1]", desc: "효율적인 커뮤니케이션 및 업무 문서화" },
+    { name: "디자인 (PS/GTQ)", IconComp: Camera, iconColor: "text-[#EC4899]", desc: "홍보물 기획 및 디자인 도구 활용" }
+  ];
+
+  const qualifications = {
+    education: [
+      { degree: "유아교육과 학사 (차석 졸업)", school: "건양대학교", period: "2020.03 - 2024.02", grade: "4.12" },
+      { degree: "고등학교 졸업학력 검정고시 합격", school: "대입검정고시", period: "2018.05.10 (합격)", grade: "-" },
+      { degree: "고등학교 중퇴", school: "동일여자고등학교 (서울)", period: "2016.03 - 2017.04", grade: "-" }
+    ],
+    awards: [
+      { title: "ESG 적극 실천 어린이집 수상", provider: "근로복지공단", year: "2024" },
+      { title: "THE-자람 보육프로그램 공모전 수상", provider: "카카오/공단", year: "2024" },
+      { title: "수업시연 경진대회 우수상", provider: "건양대학교", year: "2023" },
+      { title: "수업시연 경진대회 장려상", provider: "건양대학교", year: "2022" },
+      { title: "교재교구 개발 경진대회 최우수상", provider: "건양대학교", year: "2022" }
+    ],
+    activities: [
+      { title: "부여유치원 인턴 (실습교사)", period: "2023.05", desc: "수업 실습 및 놀이 상호작용" },
+      { title: "성심어린이집 인턴 (실습교사)", period: "2022.07 - 2022.08", desc: "영유아 발달 관찰 및 지원" },
+      { title: "인형극 동아리 '인우리' 회장", period: "2021.08 - 2022.12", desc: "기획 및 실연 총괄" },
+      { title: "건양대 부속유치원 봉사", period: "2022.03 - 2022.06", desc: "학습 지원 및 보조" }
+    ],
+    trainings: [
+      { 
+        title: "동화책을 이용한 앱 기반 구연 방법", 
+        year: "2022", 
+        provider: "건양대 취창업지원센터", 
+        summary: "디지털 기술을 활용한 창의적인 수업 기획 및 스토리텔링 앱 구현 역량 확보" 
+      },
+      { 
+        title: "앱 인벤터 이용 컴퓨터 사고 활용", 
+        year: "2021", 
+        provider: "건양대 취창업지원센터", 
+        summary: "컴퓨팅 사고력 기반의 문제 해결 능력 및 사용자 중심 UI/UX 기획 역량 강화" 
+      }
+    ],
+    certs: [
+      { name: "2종보통운전면허", date: "2024.02", issuer: "경찰청" },
+      { name: "보육교사 2급", date: "2024.02", issuer: "여성가족부" },
+      { name: "유치원정교사 2급", date: "2024.02", issuer: "교육부" },
+      { name: "아동종이조형지도사", date: "2023.01", issuer: "한국종이협회" },
+      { name: "동화구연지도사 3급", date: "2021.01", issuer: "한국그림책협회" },
+      { name: "컴퓨터활용능력 2급", date: "2016.12", issuer: "대한상공회의소" },
+      { name: "GTQ(그래픽기술자격) 2급", date: "2012.09", issuer: "한국생산성본부" },
+      { name: "ITQ 한글엑셀 A등급", date: "2012.03", issuer: "한국생산성본부" },
+      { name: "ITQ 아래한글 A등급", date: "2011.03", issuer: "한국생산성본부" },
+      { name: "ITQ 한글파워포인트 A등급", date: "2010.09", issuer: "한국생산성본부" }
+    ]
+  };
+
+  const NavItem = ({ id, label, icon: Icon }) => (
+    <button
+      onClick={() => setActiveTab(id)}
+      className={`flex items-center space-x-3 px-6 py-3 rounded-xl transition-all duration-300 text-sm font-serif ${
+        activeTab === id 
+        ? 'bg-[#1E293B] text-white shadow-xl scale-105 font-bold' 
+        : 'text-[#64748B] hover:bg-[#F1F5F9] font-medium'
+      }`}
+    >
+      <Icon size={16} strokeWidth={2.5} />
+      <span>{label}</span>
+    </button>
+  );
+
+  if (showCover) {
+    return (
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden relative selection:bg-[#E2E8F0] font-serif">
+        <div className="absolute inset-0 bg-[#F8FAFC] pointer-events-none">
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#00C73C]/5 via-[#00A9E0]/5 to-transparent"></div>
+        </div>
+        
+        <div className={`max-w-6xl w-full z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className="flex flex-col items-center mb-16">
+            <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C73C] to-[#00A9E0] mb-10 rounded-full"></div>
+            <h2 className="text-[#64748B] font-serif tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 font-medium">Portfolio</h2>
+            <h1 className="text-5xl md:text-7xl font-serif font-black text-[#1E293B] mb-8 tracking-tighter text-center leading-tight">
+              {profileData.name}
+            </h1>
+            <div className="flex items-center gap-6 text-[#00A9E0] font-serif font-bold text-lg md:text-2xl uppercase tracking-[0.2em] mb-12">
+                <span>BD OPS</span>
+                <span className="w-2 h-2 rounded-full bg-[#00C73C]"></span>
+                <span>운영지원 및 사업개발 지원</span>
+            </div>
+            <p className="text-[#334155] font-serif text-lg md:text-2xl leading-relaxed max-w-3xl text-center font-medium" style={{ wordBreak: 'keep-all' }}>
+              "타인을 돕고자 하는 진심을 <br className="hidden md:block"/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] font-bold">비즈니스 오퍼레이션 설계</span>로 증명합니다."
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+            {[
+              { id: 'profile', label: '경력 및 역량', desc: 'EXPERTISE', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800' },
+              { id: 'projects', label: '성과 사례', desc: 'IMPACT', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
+              { id: 'tech', label: '기술/도구', desc: 'DIGITAL', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800' },
+              { id: 'edu', label: '학력/자격', desc: 'HISTORY', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800' }
+            ].map((btn) => (
+              <button
+                key={btn.id}
+                onClick={() => handleNavigate(btn.id)}
+                className="group relative h-96 rounded-[2.5rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700"
+              >
+                <img src={btn.img} alt={btn.label} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 opacity-70 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-transparent to-transparent opacity-90 group-hover:opacity-40 transition-all"></div>
+                <div className="absolute bottom-10 left-10 text-left">
+                  <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-3 font-serif font-medium">{btn.desc}</p>
+                  <h3 className="text-2xl font-serif text-white group-hover:translate-x-2 transition-transform font-bold">{btn.label}</h3>
+                </div>
+              </button>
+            ))}
+          </div>
+          
+          <footer className="mt-24 flex flex-col items-center gap-6">
+            <div className="flex gap-12 text-[#94A3B8] text-[11px] font-serif font-bold tracking-widest uppercase">
+                <span className="flex items-center gap-3 hover:text-[#1E293B] transition-colors cursor-default font-serif">
+                  <Mail size={14}/> 
+                  <span className="font-sans tracking-tight">{profileData.contact.email}</span>
+                </span>
+                <span className="flex items-center gap-3 hover:text-[#1E293B] transition-colors cursor-default font-serif">
+                  <Phone size={14}/> 
+                  <span className="font-sans tracking-wider">{profileData.contact.phone}</span>
+                </span>
+            </div>
+          </footer>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white text-[#1E293B] font-serif selection:bg-[#E2E8F0] tracking-tight pb-20 overflow-x-hidden">
+      <div className={`max-w-6xl mx-auto px-6 pt-12 md:pt-16 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+        
+        <div className="w-full h-px bg-[#F1F5F9] mb-16 flex justify-between items-center text-[10px] font-serif font-bold text-[#94A3B8] uppercase tracking-[0.5em]">
+            <span>Vol. 2026 Portfolio</span>
+            <span>{profileData.name}</span>
+        </div>
+
+        <header className="flex flex-col md:flex-row items-end justify-between gap-12 mb-16 relative">
+          <div className="flex-1">
+            <div className="flex flex-wrap gap-2 mb-6">
+              {profileData.keywords.map(k => (
+                <span key={k} className="px-3 py-1.5 bg-[#F8FAFC] text-[#64748B] text-[10px] font-bold rounded-md border border-[#E2E8F0] uppercase tracking-wider">
+                  {k}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-center gap-4 mb-4">
+              <h1 className="text-3xl md:text-5xl font-serif text-[#1E293B] tracking-tighter font-bold">
+                {profileData.name}
+              </h1>
+              <button 
+                onClick={() => setIsPhotoModalOpen(true)}
+                className="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 border-[#E2E8F0] hover:border-[#00C73C] transition-all shadow-sm shrink-0 group relative"
+                title="클릭하여 크게 보기"
+              >
+                <img 
+                  src="/user_uploaded_image.jpg" 
+                  alt="Profile" 
+                  className="w-full h-full object-cover object-[82%_20%] group-hover:scale-110 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <Zap size={16} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </button>
+              <span className="text-sm md:text-base font-serif text-[#94A3B8] font-bold uppercase tracking-widest self-end pb-1 md:pb-2">{profileData.role}</span>
+            </div>
+            <p className="text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] font-serif font-bold leading-relaxed tracking-tight italic" style={{ wordBreak: 'keep-all' }}>
+               {profileData.subRole}
+            </p>
+          </div>
+
+          <div className="flex flex-col items-end gap-3 text-[12px] text-[#64748B] font-serif font-bold">
+            <button onClick={() => setShowCover(true)} className="group flex items-center gap-3 bg-[#1E293B] text-white px-7 py-3 rounded-xl hover:bg-[#00C73C] transition-all shadow-xl mb-4 font-sans uppercase text-[11px] tracking-widest font-bold">
+                <Home size={14} /> <span>홈으로 이동</span>
+            </button>
+            <div className="flex items-center gap-3">
+              <Mail size={15} className="text-[#94A3B8]"/> 
+              <span className="font-sans tracking-tight text-[#1E293B]">{profileData.contact.email}</span>
+            </div>
+            <div className="flex items-start gap-3 text-right max-w-[320px]">
+              <MapPin size={15} className="text-[#94A3B8] shrink-0 mt-1"/> 
+              <span className="leading-tight whitespace-pre-line">{profileData.contact.location}</span>
+            </div>
+          </div>
+        </header>
+
+        <nav className="flex flex-wrap gap-3 mb-16 justify-start border-b border-[#F1F5F9] pb-8">
+          <NavItem id="profile" label="경력 및 역량" icon={Target} />
+          <NavItem id="projects" label="성과 사례" icon={Rocket} />
+          <NavItem id="tech" label="기술/도구" icon={Wrench} />
+          <NavItem id="edu" label="학력/자격" icon={GraduationCap} />
+        </nav>
+
+        <main className="min-h-[500px]">
+          {activeTab === 'profile' && (
+            <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-7 bg-[#F8FAFC] p-10 md:p-14 rounded-[3rem] border border-[#E2E8F0] flex flex-col justify-between relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#00C73C]/10 to-transparent rounded-bl-full pointer-events-none"></div>
+                  <div>
+                    <h3 className="text-3xl font-serif mb-12 flex items-center gap-4 text-[#1E293B] font-bold">
+                      <Award className="text-[#00C73C]" size={28} /> 주요 역량
+                    </h3>
+                    <div className="space-y-10">
+                      {profileData.summaryPoints.map((point, i) => (
+                        <div key={i} className="flex gap-8 group">
+                          <span className="font-serif text-5xl text-[#E2E8F0] group-hover:text-[#00A9E0] transition-colors leading-none font-black">0{i+1}</span>
+                          <div style={{ wordBreak: 'keep-all' }}>
+                            <h4 className="font-bold text-[#1E293B] text-lg mb-3 tracking-tight">{point.title}</h4>
+                            <p className="text-[#475569] text-[15px] leading-relaxed font-medium">{point.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-16 p-10 bg-white rounded-[2.5rem] shadow-sm border border-[#E2E8F0] relative overflow-hidden group">
+                    <div className="absolute left-0 top-0 w-1.5 h-full bg-[#00C73C]"></div>
+                    <h4 className="font-bold text-[#1E293B] text-md mb-3 flex items-center gap-3">
+                      <ShieldCheck size={22} className="text-[#00C73C]" /> 전방위적 비즈니스 오퍼레이션 완수 역량
+                    </h4>
+                    <p className="text-[#475569] text-[14px] leading-relaxed font-medium" style={{ wordBreak: 'keep-all' }}>
+                      제휴사 관리 및 고객 응대부터 B2G 사업 지원, 복잡한 정산 프로세스 정립까지 비즈니스 운영의 전 과정을 무결점으로 지원합니다. 정교한 문서 작업 역량을 바탕으로 운영의 모든 단계를 체계화하는 데 강점이 있습니다.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="lg:col-span-5 space-y-4">
+                  {[
+                    { title: "비즈니스 파트너 관리", desc: "제휴사 관리부터 고객 대응까지 파트너십 전 과정을 조율하며 프로젝트를 안정적으로 운영", IconComp: Users, iconColor: "text-[#00C73C]" },
+                    { title: "영업 오퍼레이션", desc: "조직의 병목을 해결하는 오퍼레이션 지원과 데이터 기반의 영업 전략 수립으로 성과 극대화", IconComp: RefreshCw, iconColor: "text-[#00A9E0]" },
+                    { title: "데이터 리터러시 & 자동화", desc: "SQL 분석으로 정확한 의사결정 기반을 제공하고 반복 행정 업무를 설계하여 생산성 혁신", IconComp: Database, iconColor: "text-[#00C73C]" },
+                    { title: "B2G 사업 용역 관리", desc: "제안, 계약, 운영, 정산 전 과정을 통합 관리하여 사업의 안정성 확보 및 수익성 개선", IconComp: ShieldCheck, iconColor: "text-[#00A9E0]" },
+                    { title: "고객 경험 중심 소통", desc: "고객사 문의에 기민하게 대응하며 서비스 만족도를 제고하고 잠재적 비즈니스 리드 발굴", IconComp: MessageSquare, iconColor: "text-[#00C73C]" },
+                    { title: "프로세스 구조화 & 문서화", desc: "팀 내 업무 매뉴얼을 정립하고 효율적인 협업 툴 활용 방안을 제시하여 전반적인 생산성 향상", IconComp: FileText, iconColor: "text-[#00A9E0]" }
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white p-7 rounded-[2rem] border border-[#E2E8F0] flex items-start gap-6 transition-all hover:border-[#00C73C] hover:shadow-xl group">
+                      <div className={`p-4 bg-[#F8FAFC] rounded-2xl shrink-0 group-hover:bg-[#F1F5F9] transition-all`}>
+                        <item.IconComp size={20} strokeWidth={2.5} className={item.iconColor} />
+                      </div>
+                      <div style={{ wordBreak: 'keep-all' }}>
+                        <h4 className="font-bold text-[#1E293B] text-[15px] mb-1.5">{item.title}</h4>
+                        <p className="text-[#64748B] text-[13px] leading-relaxed font-medium">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                <h3 className="text-3xl font-serif mb-16 text-[#1E293B] flex items-center gap-4 font-bold">
+                  <Briefcase className="text-[#00A9E0]" size={28} /> 상세 경력 사항
+                </h3>
+                <div className="relative border-l-2 border-[#F1F5F9] ml-8 space-y-16">
+                  {careerHistory.map((career, i) => (
+                    <div key={i} className="relative pl-12 group">
+                      <div className="absolute -left-[11px] top-2 w-5 h-5 rounded-full bg-white border-4 border-[#1E293B] group-hover:border-[#00C73C] transition-all"></div>
+                      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                        <div>
+                          {career.url ? (
+                            <a 
+                              href={career.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-2xl font-serif text-[#1E293B] mb-1 font-bold hover:text-[#00C73C] transition-colors flex items-center gap-2 group/link"
+                            >
+                              {career.company}
+                              <ArrowRight size={18} className="opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                            </a>
+                          ) : (
+                            <h4 className="text-2xl font-serif text-[#1E293B] mb-1 font-bold">{career.company}</h4>
+                          )}
+                          <p className="font-bold text-[#64748B] text-lg uppercase tracking-wider">{career.title}</p>
+                        </div>
+                        <span className="text-[11px] font-bold text-[#00C73C] bg-[#F0FDF4] px-5 py-2 rounded-full uppercase tracking-widest border border-[#DCFCE7] font-sans font-medium">{career.period}</span>
+                      </div>
+                      <p className="text-[#334155] mb-10 font-semibold text-base leading-relaxed">{career.description}</p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {career.tasks.map((task, idx) => (
+                          <div key={idx} className="flex items-start gap-4 text-[#475569] bg-[#F8FAFC] p-5 rounded-2xl border border-[#E2E8F0] text-[14px] font-medium hover:border-[#00C73C] transition-colors" style={{ wordBreak: 'keep-all' }}>
+                            <CheckCircle2 size={18} className="text-[#00C73C] mt-0.5 flex-shrink-0" />
+                            <span>{task}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'projects' && (
+            <div className="grid grid-cols-1 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
+              {projectData.map((project, index) => (
+                <div key={index} className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0] relative overflow-hidden group">
+                  <div className="flex flex-col md:flex-row justify-between md:items-start mb-12 gap-8">
+                    <div className="flex gap-8 flex-1 items-center">
+                      <div className="w-[84px] h-[84px] flex items-center justify-center bg-gradient-to-br from-[#00C73C] to-[#00A9E0] rounded-[2rem] text-white shadow-lg shrink-0">
+                        {index === 5 && <Truck size={36} strokeWidth={1.5} />}
+                        {index === 4 && <Building2 size={36} strokeWidth={1.5} />}
+                        {index === 3 && <Handshake size={36} strokeWidth={1.5} />}
+                        {index < 3 && <project.icon size={36} strokeWidth={1.5} />}
+                      </div>
+                      <div style={{ wordBreak: 'keep-all' }}>
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#94A3B8] mb-2 block font-serif">0{index+1}. {project.category}</span>
+                        <h3 className="text-2xl md:text-3xl font-serif text-[#1E293B] mb-2 font-bold">{project.title}</h3>
+                        <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] tracking-tight">{project.impact}</p>
+                      </div>
+                    </div>
+                    
+                    {project.targets && (
+                      <div className="flex flex-col items-end text-right gap-2 max-w-[380px] bg-[#F8FAFC] p-6 rounded-[2rem] border border-[#E2E8F0]">
+                        <h4 className="text-[10px] font-serif font-black text-[#94A3B8] uppercase tracking-widest mb-2">참여 프로젝트 목록</h4>
+                        {project.targets.map((t, idx) => (
+                          <span key={idx} className="text-[11px] font-bold text-[#475569] leading-tight">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {project.details.map((detail, i) => (
+                      <div key={i} className="flex items-center gap-5 p-7 bg-[#F8FAFC] rounded-3xl border border-[#E2E8F0] hover:bg-white transition-all hover:shadow-xl group">
+                        <div className="w-9 h-9 bg-white border-2 border-[#E2E8F0] group-hover:border-[#00C73C] rounded-xl flex items-center justify-center shadow-sm text-[#00C73C] text-sm font-black shrink-0 transition-colors leading-none">
+                          {i + 1}
+                        </div>
+                        <span className="text-[#334155] font-semibold text-[14px] md:text-[15px] leading-snug self-center" style={{ wordBreak: 'keep-all' }}>
+                          {detail}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'tech' && (
+            <div className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0] animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
+              <div className="flex items-center gap-6 mb-16">
+                <div className="p-5 bg-gradient-to-br from-[#00C73C] to-[#00A9E0] rounded-[1.5rem] shadow-lg">
+                   <Wrench className="text-white" size={32} strokeWidth={2} />
+                </div>
+                <h3 className="text-4xl font-serif text-[#1E293B] font-bold">디지털 및 데이터 활용 역량</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                {skills.map((skill, i) => (
+                  <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] flex items-center gap-8 hover:bg-white transition-all hover:shadow-2xl group">
+                    <div className="p-5 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform border border-[#E2E8F0] group-hover:border-[#00C73C]">
+                      <skill.IconComp className={skill.iconColor} size={30} strokeWidth={2.5} />
+                    </div>
+                    <div className="flex-1">
+                      <span className="font-bold text-[#1E293B] text-xl block mb-1.5">0{i+1}. {skill.name}</span>
+                      <p className="text-[#64748B] text-[14px] font-medium leading-relaxed font-sans">{skill.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="p-12 bg-white rounded-[3rem] text-center flex flex-col items-center justify-center min-h-[240px] group shadow-sm border-2 border-[#F1F5F9] hover:border-[#00C73C] transition-all">
+                  <Star className="text-[#00C73C] mb-6 group-hover:scale-110 transition-transform" size={32} fill="currentColor" />
+                  <h4 className="font-bold text-[#1E293B] text-lg mb-4">데이터 리터러시</h4>
+                  <p className="text-[#64748B] text-[14px] leading-relaxed font-medium font-sans" style={{ wordBreak: 'keep-all' }}>
+                    SQL 추출부터 가공 및 검증까지<br />
+                    실무 데이터 전 과정을 직접 수행합니다.
+                  </p>
+                </div>
+                <div className="p-12 bg-white rounded-[3rem] text-center flex flex-col items-center justify-center min-h-[240px] group shadow-sm border-2 border-[#F1F5F9] hover:border-[#00A9E0] transition-all">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A9E0]/10 blur-[60px]"></div>
+                  <Users className="text-[#00A9E0] mb-6 group-hover:scale-110 transition-transform" size={32} />
+                  <h4 className="font-bold text-[#1E293B] text-lg mb-4">원활한 소통</h4>
+                  <p className="text-[#94A3B8] text-[14px] leading-relaxed font-medium font-sans" style={{ wordBreak: 'keep-all' }}>
+                    사업부와 개발팀 간 언어 조율로<br />
+                    프로젝트 수행 가속도 및 정확도를 향상합니다.
+                  </p>
+                </div>
+                <div className="p-12 bg-white rounded-[3rem] text-center flex flex-col items-center justify-center min-h-[240px] group shadow-sm border-2 border-[#F1F5F9] hover:border-[#00C73C] transition-all">
+                  <Zap className="text-[#00C73C] mb-6 group-hover:scale-110 transition-transform" size={32} fill="currentColor" />
+                  <h4 className="font-bold text-[#1E293B] text-lg mb-4">업무 혁신</h4>
+                  <p className="text-[#64748B] text-[14px] leading-relaxed font-medium font-sans" style={{ wordBreak: 'keep-all' }}>
+                    GAS 및 파이썬 매크로 활용으로<br />
+                    반복 행정 업무 시간을 비약적으로 절감합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'edu' && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
+              <div className="space-y-10">
+                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
+                    <GraduationCap className="text-[#00C73C]" size={26} /> 학력 사항
+                  </h3>
+                  <div className="space-y-6">
+                    {qualifications.education.map((edu, i) => (
+                      <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2rem] border border-[#E2E8F0] hover:bg-white transition-all hover:shadow-lg group">
+                        <div className="flex justify-between items-start mb-4">
+                          <h4 className="font-bold text-xl text-[#1E293B] group-hover:text-[#00C73C] transition-colors font-serif">{edu.school}</h4>
+                          <span className="text-[11px] font-bold text-[#64748B] tracking-wider bg-white px-3 py-1 rounded-full shadow-sm font-sans">{edu.period}</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <p className="text-[#475569] font-bold text-[15px] font-serif">{edu.degree}</p>
+                          {edu.grade !== "-" && (
+                            <span className="text-sm text-[#00C73C] font-black bg-[#DCFCE7] px-4 py-1.5 rounded-xl font-sans font-medium">
+                              GPA {edu.grade} / 4.5
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
+                    <Award className="text-[#00A9E0]" size={26} /> 수상 내역
+                  </h3>
+                  <div className="space-y-4">
+                    {qualifications.awards.map((award, i) => (
+                      <div key={i} className="flex justify-between items-center p-6 bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] hover:shadow-md transition-all">
+                        <div className="flex items-center gap-5">
+                          <div className={`w-3 h-3 rounded-full ${i < 2 ? 'bg-[#00C73C]' : 'bg-[#CBD5E1]'}`}></div>
+                          <span className="font-bold text-[15px] text-[#1E293B] font-serif">{award.title}</span>
+                        </div>
+                        <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans">{award.year}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
+                    <Flag className="text-[#10B981]" size={26} /> 대외활동
+                  </h3>
+                  <div className="space-y-5">
+                    {qualifications.activities.map((act, i) => (
+                      <div key={i} className="p-7 bg-[#F8FAFC] rounded-[3xl] border border-[#E2E8F0] flex justify-between items-start hover:shadow-md transition-all">
+                        <div style={{ wordBreak: 'keep-all' }}>
+                          <p className="font-bold text-[#1E293B] text-[16px] mb-2 font-serif">{act.title}</p>
+                          <p className="text-[13px] text-[#64748B] font-medium leading-relaxed font-serif">{act.desc}</p>
+                        </div>
+                        <span className="text-[10px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm shrink-0 ml-6 tracking-tighter font-sans">{act.period}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </div>
+              
+              <div className="space-y-10">
+                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
+                    <BadgeCheck className="text-[#00A9E0]" size={26} /> 자격 사항
+                  </h3>
+                  <div className="grid grid-cols-1 gap-3">
+                    {qualifications.certs.map((cert, i) => (
+                      <div key={i} className="flex items-center justify-between p-5 bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] hover:bg-white transition-all group">
+                        <div className="flex items-center gap-5">
+                          <FileText size={16} className="text-[#CBD5E1] group-hover:text-[#00A9E0]" strokeWidth={2.5}/>
+                          <div className="flex flex-col">
+                            <span className="font-bold text-[15px] text-[#1E293B] leading-tight font-serif">{cert.name}</span>
+                            <span className="text-[11px] text-[#94A3B8] font-bold uppercase tracking-tighter mt-1 font-serif">{cert.issuer}</span>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-bold text-[#64748B] tracking-wider font-sans">{cert.date}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
+                    <BookOpen className="text-[#00C73C]" size={26} /> 직무 교육
+                  </h3>
+                  <div className="space-y-8">
+                    {qualifications.trainings.map((train, i) => (
+                      <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group hover:border-[#00C73C] transition-all">
+                        <div className="flex items-center justify-between mb-5">
+                          <p className="font-bold text-[#1E293B] text-lg font-serif">{train.title}</p>
+                          <span className="text-[10px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium">{train.year}</span>
+                        </div>
+                        <p className="text-[11px] text-[#64748B] font-bold uppercase mb-5 tracking-widest font-serif">{train.provider}</p>
+                        <p className="text-[14px] text-[#475569] font-medium leading-relaxed bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-inner font-serif" style={{ wordBreak: 'keep-all' }}>
+                          {train.summary}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </div>
+            </div>
+          )}
+        </main>
+
+        <footer className="mt-40 text-center py-16 border-t border-[#F1F5F9] flex flex-col items-center gap-8 font-serif">
+          <div className="flex gap-12 text-[#94A3B8] text-[10px] font-serif font-bold tracking-[0.4em] uppercase">
+                <span>Portfolio</span>
+                <span className="text-[#CBD5E1]">•</span>
+                <span>© 2026 {profileData.name}</span>
+          </div>
+          <p className="text-[#CBD5E1] text-[10px] font-bold tracking-widest uppercase font-serif">All Rights Reserved</p>
+        </footer>
+
+        {/* Profile Photo Modal */}
+        {isPhotoModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 pt-20 md:pt-32 overflow-y-auto">
+            <div 
+              className="fixed inset-0 bg-[#1E293B]/40 backdrop-blur-sm"
+              onClick={() => setIsPhotoModalOpen(false)}
+            ></div>
+            <div className="relative max-w-sm w-full bg-white rounded-[2.5rem] overflow-hidden shadow-2xl animate-in slide-in-from-top-8 duration-500 border border-[#F1F5F9] p-2 mb-10">
+              <div className="relative h-80 rounded-[2rem] overflow-hidden bg-[#F8FAFC]">
+                <img 
+                  src="/user_uploaded_image.jpg" 
+                  alt="2026 Place& Official Model" 
+                  className="w-full h-full object-cover object-[82%_20%]"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
+                  }}
+                />
+                <button 
+                  onClick={() => setIsPhotoModalOpen(false)}
+                  className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white text-[#1E293B] rounded-full shadow-lg transition-all"
+                >
+                  <Check size={18} />
+                </button>
+              </div>
+              
+              <div className="p-8 text-center">
+                <h2 className="text-xl font-serif font-bold text-[#1E293B] mb-4 whitespace-nowrap">
+                  2026 플레이스앤 공식 모델
+                </h2>
+                <p className="text-[#475569] text-sm leading-relaxed font-medium" style={{ wordBreak: 'keep-all' }}>
+                  이해도와 실무 전문성을 인정받아<br/>
+                  <span className="text-[#00C73C] font-bold">2026 플레이스앤 공식 모델</span>로 선정되었습니다.
+                </p>
+                <button 
+                  onClick={() => setIsPhotoModalOpen(false)}
+                  className="mt-8 w-full py-4 bg-[#1E293B] text-white rounded-2xl font-bold hover:bg-[#00C73C] transition-all text-sm shadow-lg"
+                >
+                  확인
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default App;
