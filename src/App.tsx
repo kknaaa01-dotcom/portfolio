@@ -524,9 +524,9 @@ const App = () => {
                         {index < 3 && <project.icon size={36} strokeWidth={1.5} />}
                       </div>
                       <div style={{ wordBreak: 'keep-all' }}>
-                        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#94A3B8] mb-2 block font-sans">0{index+1}. {project.category}</span>
+                        <span className="text-[17px] font-black uppercase tracking-[0.15em] text-[#94A3B8] mb-2 block font-sans">0{index+1}. {project.category}</span>
                         <h3 className="text-2xl md:text-3xl font-serif text-[#1E293B] mb-2 font-bold">{project.title}</h3>
-                        <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] tracking-tight font-sans">{project.impact}</p>
+                        <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] tracking-tight font-serif">{project.impact}</p>
                       </div>
                     </div>
                     
@@ -575,7 +575,7 @@ const App = () => {
                       <skill.IconComp className={skill.iconColor} size={30} strokeWidth={2.5} />
                     </div>
                     <div className="flex-1">
-                      <span className="font-serif font-bold text-[#1E293B] text-xl block mb-1.5">0{i+1}. {skill.name}</span>
+                      <span className="font-serif font-bold text-[#1E293B] text-2xl block mb-1.5">0{i+1}. {skill.name}</span>
                       <p className="text-[#64748B] text-[14px] font-medium leading-relaxed font-serif">{skill.desc}</p>
                     </div>
                   </div>
@@ -645,12 +645,12 @@ const App = () => {
                   </h3>
                   <div className="space-y-4">
                     {qualifications.awards.map((award, i) => (
-                      <div key={i} className="flex justify-between items-center p-6 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
-                        <div className="flex items-center gap-5">
-                          <div className="w-3 h-3 rounded-full bg-[#00C73C]"></div>
-                          <span className="font-bold text-[15px] text-[#1E293B] font-serif">{award.title}</span>
+                      <div key={i} className="flex justify-between items-start p-6 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
+                        <div className="flex items-start gap-5">
+                          <div className="w-3 h-3 rounded-full bg-[#00C73C] mt-1.5 shrink-0"></div>
+                          <span className="font-bold text-[15px] text-[#1E293B] font-serif leading-snug" style={{ wordBreak: 'keep-all' }}>{award.title}</span>
                         </div>
-                        <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans">{award.year}</span>
+                        <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans shrink-0 ml-4 mt-1">{award.year}</span>
                       </div>
                     ))}
                   </div>
@@ -681,15 +681,15 @@ const App = () => {
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
                     {qualifications.certs.map((cert, i) => (
-                      <div key={i} className="flex items-center justify-between p-5 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:bg-white transition-all group">
-                        <div className="flex items-center gap-5">
-                          <FileText size={16} className="text-[#CBD5E1] group-hover:text-[#00A9E0]" strokeWidth={2.5}/>
-                          <div className="flex flex-col">
+                      <div key={i} className="flex items-start justify-between p-5 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:bg-white transition-all group">
+                        <div className="flex items-start gap-5">
+                          <FileText size={16} className="text-[#CBD5E1] group-hover:text-[#00A9E0] mt-1 shrink-0" strokeWidth={2.5}/>
+                          <div className="flex flex-col" style={{ wordBreak: 'keep-all' }}>
                             <span className="font-bold text-[15px] text-[#1E293B] leading-tight font-serif">{cert.name}</span>
                             <span className="text-[11px] text-[#94A3B8] font-bold uppercase tracking-tighter mt-1 font-serif">{cert.issuer}</span>
                           </div>
                         </div>
-                        <span className="text-[11px] font-bold text-[#64748B] tracking-wider font-sans">{cert.date}</span>
+                        <span className="text-[11px] font-bold text-[#64748B] tracking-wider font-sans shrink-0 ml-4 mt-1">{cert.date}</span>
                       </div>
                     ))}
                   </div>
@@ -703,7 +703,7 @@ const App = () => {
                     {qualifications.trainings.map((train, i) => (
                       <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group hover:border-[#00C73C] transition-all">
                         <div className="flex items-center justify-between mb-5">
-                          <p className="font-bold text-[#1E293B] text-lg font-serif">{train.title}</p>
+                          <p className="font-bold text-[#1E293B] text-lg font-serif" style={{ wordBreak: 'keep-all' }}>{train.title}</p>
                           <span className="text-[11px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium">{train.year}</span>
                         </div>
                         <p className="text-[11px] text-[#64748B] font-bold uppercase mb-5 tracking-widest font-serif">{train.provider}</p>
