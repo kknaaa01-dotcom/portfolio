@@ -64,7 +64,7 @@ const App = () => {
   const profileData = {
     name: "김나경",
     role: "BD OPS",
-    subRole: "영업지원 및 사업개발 지원",
+    subRole: "영업지원 및 사업관리",
     contact: {
       phone: "010-8628-5784",
       email: "kknaaa00@naver.com",
@@ -297,7 +297,7 @@ const App = () => {
             <div className="flex items-center gap-6 text-[#00A9E0] font-serif font-bold text-lg md:text-2xl uppercase tracking-[0.2em] mb-12">
                 <span>BD OPS</span>
                 <span className="w-2 h-2 rounded-full bg-[#00C73C]"></span>
-                <span>운영지원 및 사업개발 지원</span>
+                <span>영업지원 및 사업관리</span>
             </div>
             <p className="text-[#334155] font-serif text-lg md:text-2xl leading-relaxed max-w-3xl text-center font-medium" style={{ wordBreak: 'keep-all' }}>
               "타인을 돕고자 하는 진심을 <br className="hidden md:block"/>
