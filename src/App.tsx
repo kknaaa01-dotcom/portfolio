@@ -148,10 +148,10 @@ const App = () => {
       title: "네이버 파이낸셜 '커넥트' 단말기 영업 관리",
       impact: "결제 단말기 도입 활성화 및 정산 체계화",
       details: [
-        "일반·인기 식당 대상 결제 단말기 오퍼레이션 전담",
+        "인기 식당 대상 결제 단말기 오퍼레이션 전담",
         "단말기 도입 계약서 검토, 날인 관리 및 활성화 병목 제거",
         "영업 인력별 유입 리드 분석 및 기여도 데이터 구축",
-        "플랫폼사-영업 현장 간 가교 역할로 단말기 공급 체계 유지"
+        "플랫폼사와 영업 현장 간 단말기 공급 체계 유지"
       ]
     },
     {
@@ -226,11 +226,11 @@ const App = () => {
       { degree: "고등학교 중퇴", school: "동일여자고등학교 (서울)", period: "2016.03 - 2017.04", grade: "-" }
     ],
     awards: [
-      { title: "ESG 적극 실천 어린이집 수상", provider: "근로복지공단", year: "2024" },
-      { title: "THE-자람 보육프로그램 공모전 수상", provider: "카카오/공단", year: "2024" },
-      { title: "수업시연 경진대회 우수상", provider: "건양대학교", year: "2023" },
-      { title: "수업시연 경진대회 장려상", provider: "건양대학교", year: "2022" },
-      { title: "교재교구 개발 경진대회 최우수상", provider: "건양대학교", year: "2022" }
+      { title: "2025년 직장어린이집 THE-자람 보육프로그램 공모전", provider: "카카오/공단", year: "2025" },
+      { title: "2024년 직장어린이집 多가치 으쓱(ESG)공모전 - ESG 적극 실천 어린이집", provider: "근로복지공단", year: "2024" },
+      { title: "협동창의 교육·복지 EXPO 수업시연 경진대회 우수상", provider: "건양대학교", year: "2023" },
+      { title: "협동창의 교육·복지 EXPO 수업시연 경진대회 장려상", provider: "건양대학교", year: "2022" },
+      { title: "협동창의 교육·복지 EXPO 교재교구 개발 경진대회 최우수상", provider: "건양대학교", year: "2022" }
     ],
     activities: [
       { title: "부여유치원 인턴 (실습교사)", period: "2023.05", desc: "수업 실습 및 놀이 상호작용" },
@@ -290,7 +290,7 @@ const App = () => {
         <div className={`max-w-6xl w-full z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="flex flex-col items-center mb-16">
             <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C73C] to-[#00A9E0] mb-10 rounded-full"></div>
-            <h2 className="text-[#64748B] font-serif tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 font-medium">Portfolio</h2>
+            <h2 className="text-[#64748B] font-serif tracking-[0.4em] uppercase text-[11px] md:text-xs mb-6 font-medium">Portfolio</h2>
             <h1 className="text-5xl md:text-7xl font-serif font-black text-[#1E293B] mb-8 tracking-tighter text-center leading-tight">
               {profileData.name}
             </h1>
@@ -320,7 +320,7 @@ const App = () => {
                 <img src={btn.img} alt={btn.label} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 opacity-70 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-transparent to-transparent opacity-90 group-hover:opacity-40 transition-all"></div>
                 <div className="absolute bottom-10 left-10 text-left">
-                  <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-3 font-serif font-medium">{btn.desc}</p>
+                  <p className="text-white/60 text-[11px] font-bold uppercase tracking-[0.2em] mb-3 font-serif font-medium">{btn.desc}</p>
                   <h3 className="text-2xl font-serif text-white group-hover:translate-x-2 transition-transform font-bold">{btn.label}</h3>
                 </div>
               </button>
@@ -348,7 +348,7 @@ const App = () => {
     <div className="min-h-screen bg-white text-[#1E293B] font-serif selection:bg-[#E2E8F0] tracking-tight pb-20 overflow-x-hidden">
       <div className={`max-w-6xl mx-auto px-6 pt-12 md:pt-16 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         
-        <div className="w-full h-px bg-[#F1F5F9] mb-16 flex justify-between items-center text-[10px] font-serif font-bold text-[#94A3B8] uppercase tracking-[0.5em]">
+        <div className="w-full h-px bg-[#F1F5F9] mb-16 flex justify-between items-center text-[11px] font-serif font-bold text-[#94A3B8] uppercase tracking-[0.5em]">
             <span>Vol. 2026 Portfolio</span>
             <span>{profileData.name}</span>
         </div>
@@ -357,7 +357,7 @@ const App = () => {
           <div className="flex-1">
             <div className="flex flex-wrap gap-2 mb-6">
               {profileData.keywords.map(k => (
-                <span key={k} className="px-3 py-1.5 bg-[#F8FAFC] text-[#64748B] text-[10px] font-bold rounded-md border border-[#E2E8F0] uppercase tracking-wider">
+                <span key={k} className="px-3 py-1.5 bg-[#F8FAFC] text-[#64748B] text-[11px] font-bold rounded-md border border-[#E2E8F0] uppercase tracking-wider">
                   {k}
                 </span>
               ))}
@@ -426,7 +426,7 @@ const App = () => {
                     <div className="space-y-10">
                       {profileData.summaryPoints.map((point, i) => (
                         <div key={i} className="flex gap-8 group">
-                          <span className="font-serif text-5xl text-[#E2E8F0] group-hover:text-[#00A9E0] transition-colors leading-none font-black">0{i+1}</span>
+                          <span className="font-sans text-5xl text-[#E2E8F0] group-hover:text-[#00A9E0] transition-colors leading-none font-black">0{i+1}</span>
                           <div style={{ wordBreak: 'keep-all' }}>
                             <h4 className="font-bold text-[#1E293B] text-lg mb-3 tracking-tight">{point.title}</h4>
                             <p className="text-[#475569] text-[15px] leading-relaxed font-medium">{point.desc}</p>
@@ -441,7 +441,7 @@ const App = () => {
                       <ShieldCheck size={22} className="text-[#00C73C]" /> 전방위적 비즈니스 오퍼레이션 완수 역량
                     </h4>
                     <p className="text-[#475569] text-[14px] leading-relaxed font-medium" style={{ wordBreak: 'keep-all' }}>
-                      제휴사 관리 및 고객 응대부터 B2G 사업 지원, 복잡한 정산 프로세스 정립까지 비즈니스 운영의 전 과정을 무결점으로 지원합니다. 정교한 문서 작업 역량을 바탕으로 운영의 모든 단계를 체계화하는 데 강점이 있습니다.
+                      제휴사 관리 및 고객 응대부터 B2G 사업 지원, 복잡한 정산 프로세스 정립까지 비즈니스 운영의 전 과정을 무결점으로 지원합니다.<br />GAS(Google Apps Script) 자동화 및 Redash 쿼리 추출 역량을 바탕으로 운영의 모든 단계를 체계화하는 데 강점이 있습니다.
                     </p>
                   </div>
                 </div>
@@ -524,17 +524,17 @@ const App = () => {
                         {index < 3 && <project.icon size={36} strokeWidth={1.5} />}
                       </div>
                       <div style={{ wordBreak: 'keep-all' }}>
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#94A3B8] mb-2 block font-serif">0{index+1}. {project.category}</span>
+                        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#94A3B8] mb-2 block font-sans">0{index+1}. {project.category}</span>
                         <h3 className="text-2xl md:text-3xl font-serif text-[#1E293B] mb-2 font-bold">{project.title}</h3>
-                        <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] tracking-tight">{project.impact}</p>
+                        <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] tracking-tight font-sans">{project.impact}</p>
                       </div>
                     </div>
                     
                     {project.targets && (
                       <div className="flex flex-col items-end text-right gap-2 max-w-[380px] bg-[#F8FAFC] p-6 rounded-[2rem] border border-[#E2E8F0]">
-                        <h4 className="text-[10px] font-serif font-black text-[#94A3B8] uppercase tracking-widest mb-2">참여 프로젝트 목록</h4>
+                        <h4 className="text-[11px] font-serif font-black text-[#94A3B8] uppercase tracking-widest mb-2">참여 프로젝트 목록</h4>
                         {project.targets.map((t, idx) => (
-                          <span key={idx} className="text-[11px] font-bold text-[#475569] leading-tight">
+                          <span key={idx} className="text-[11px] font-bold text-[#475569] leading-tight font-sans">
                             {t}
                           </span>
                         ))}
@@ -545,7 +545,7 @@ const App = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {project.details.map((detail, i) => (
                       <div key={i} className="flex items-center gap-5 p-7 bg-[#F8FAFC] rounded-3xl border border-[#E2E8F0] hover:bg-white transition-all hover:shadow-xl group">
-                        <div className="w-9 h-9 bg-white border-2 border-[#E2E8F0] group-hover:border-[#00C73C] rounded-xl flex items-center justify-center shadow-sm text-[#00C73C] text-sm font-black shrink-0 transition-colors leading-none">
+                        <div className="w-9 h-9 bg-white border-2 border-[#E2E8F0] group-hover:border-[#00C73C] rounded-xl flex items-center justify-center shadow-sm text-[#00C73C] text-sm font-black shrink-0 transition-colors leading-none font-sans">
                           {i + 1}
                         </div>
                         <span className="text-[#334155] font-semibold text-[14px] md:text-[15px] leading-snug self-center" style={{ wordBreak: 'keep-all' }}>
@@ -575,8 +575,8 @@ const App = () => {
                       <skill.IconComp className={skill.iconColor} size={30} strokeWidth={2.5} />
                     </div>
                     <div className="flex-1">
-                      <span className="font-bold text-[#1E293B] text-xl block mb-1.5">0{i+1}. {skill.name}</span>
-                      <p className="text-[#64748B] text-[14px] font-medium leading-relaxed font-sans">{skill.desc}</p>
+                      <span className="font-serif font-bold text-[#1E293B] text-xl block mb-1.5">0{i+1}. {skill.name}</span>
+                      <p className="text-[#64748B] text-[14px] font-medium leading-relaxed font-serif">{skill.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -585,8 +585,8 @@ const App = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="p-12 bg-white rounded-[3rem] text-center flex flex-col items-center justify-center min-h-[240px] group shadow-sm border-2 border-[#F1F5F9] hover:border-[#00C73C] transition-all">
                   <Star className="text-[#00C73C] mb-6 group-hover:scale-110 transition-transform" size={32} fill="currentColor" />
-                  <h4 className="font-bold text-[#1E293B] text-lg mb-4">데이터 리터러시</h4>
-                  <p className="text-[#64748B] text-[14px] leading-relaxed font-medium font-sans" style={{ wordBreak: 'keep-all' }}>
+                  <h4 className="font-bold text-[#1E293B] text-lg mb-4 font-serif">데이터 리터러시</h4>
+                  <p className="text-[#64748B] text-[14px] leading-relaxed font-medium font-serif" style={{ wordBreak: 'keep-all' }}>
                     SQL 추출부터 가공 및 검증까지<br />
                     실무 데이터 전 과정을 직접 수행합니다.
                   </p>
@@ -594,16 +594,16 @@ const App = () => {
                 <div className="p-12 bg-white rounded-[3rem] text-center flex flex-col items-center justify-center min-h-[240px] group shadow-sm border-2 border-[#F1F5F9] hover:border-[#00A9E0] transition-all">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#00A9E0]/10 blur-[60px]"></div>
                   <Users className="text-[#00A9E0] mb-6 group-hover:scale-110 transition-transform" size={32} />
-                  <h4 className="font-bold text-[#1E293B] text-lg mb-4">원활한 소통</h4>
-                  <p className="text-[#94A3B8] text-[14px] leading-relaxed font-medium font-sans" style={{ wordBreak: 'keep-all' }}>
+                  <h4 className="font-bold text-[#1E293B] text-lg mb-4 font-serif">원활한 소통</h4>
+                  <p className="text-[#94A3B8] text-[14px] leading-relaxed font-medium font-serif" style={{ wordBreak: 'keep-all' }}>
                     사업부와 개발팀 간 언어 조율로<br />
                     프로젝트 수행 가속도 및 정확도를 향상합니다.
                   </p>
                 </div>
                 <div className="p-12 bg-white rounded-[3rem] text-center flex flex-col items-center justify-center min-h-[240px] group shadow-sm border-2 border-[#F1F5F9] hover:border-[#00C73C] transition-all">
                   <Zap className="text-[#00C73C] mb-6 group-hover:scale-110 transition-transform" size={32} fill="currentColor" />
-                  <h4 className="font-bold text-[#1E293B] text-lg mb-4">업무 혁신</h4>
-                  <p className="text-[#64748B] text-[14px] leading-relaxed font-medium font-sans" style={{ wordBreak: 'keep-all' }}>
+                  <h4 className="font-bold text-[#1E293B] text-lg mb-4 font-serif">업무 혁신</h4>
+                  <p className="text-[#64748B] text-[14px] leading-relaxed font-medium font-serif" style={{ wordBreak: 'keep-all' }}>
                     GAS 및 파이썬 매크로 활용으로<br />
                     반복 행정 업무 시간을 비약적으로 절감합니다.
                   </p>
@@ -645,9 +645,9 @@ const App = () => {
                   </h3>
                   <div className="space-y-4">
                     {qualifications.awards.map((award, i) => (
-                      <div key={i} className="flex justify-between items-center p-6 bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] hover:shadow-md transition-all">
+                      <div key={i} className="flex justify-between items-center p-6 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
                         <div className="flex items-center gap-5">
-                          <div className={`w-3 h-3 rounded-full ${i < 2 ? 'bg-[#00C73C]' : 'bg-[#CBD5E1]'}`}></div>
+                          <div className="w-3 h-3 rounded-full bg-[#00C73C]"></div>
                           <span className="font-bold text-[15px] text-[#1E293B] font-serif">{award.title}</span>
                         </div>
                         <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans">{award.year}</span>
@@ -662,12 +662,12 @@ const App = () => {
                   </h3>
                   <div className="space-y-5">
                     {qualifications.activities.map((act, i) => (
-                      <div key={i} className="p-7 bg-[#F8FAFC] rounded-[3xl] border border-[#E2E8F0] flex justify-between items-start hover:shadow-md transition-all">
+                      <div key={i} className="p-7 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] flex justify-between items-start hover:shadow-md transition-all">
                         <div style={{ wordBreak: 'keep-all' }}>
                           <p className="font-bold text-[#1E293B] text-[16px] mb-2 font-serif">{act.title}</p>
                           <p className="text-[13px] text-[#64748B] font-medium leading-relaxed font-serif">{act.desc}</p>
                         </div>
-                        <span className="text-[10px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm shrink-0 ml-6 tracking-tighter font-sans">{act.period}</span>
+                        <span className="text-[11px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm shrink-0 ml-6 tracking-tighter font-sans">{act.period}</span>
                       </div>
                     ))}
                   </div>
@@ -681,7 +681,7 @@ const App = () => {
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
                     {qualifications.certs.map((cert, i) => (
-                      <div key={i} className="flex items-center justify-between p-5 bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] hover:bg-white transition-all group">
+                      <div key={i} className="flex items-center justify-between p-5 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:bg-white transition-all group">
                         <div className="flex items-center gap-5">
                           <FileText size={16} className="text-[#CBD5E1] group-hover:text-[#00A9E0]" strokeWidth={2.5}/>
                           <div className="flex flex-col">
@@ -689,7 +689,7 @@ const App = () => {
                             <span className="text-[11px] text-[#94A3B8] font-bold uppercase tracking-tighter mt-1 font-serif">{cert.issuer}</span>
                           </div>
                         </div>
-                        <span className="text-[10px] font-bold text-[#64748B] tracking-wider font-sans">{cert.date}</span>
+                        <span className="text-[11px] font-bold text-[#64748B] tracking-wider font-sans">{cert.date}</span>
                       </div>
                     ))}
                   </div>
@@ -704,7 +704,7 @@ const App = () => {
                       <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group hover:border-[#00C73C] transition-all">
                         <div className="flex items-center justify-between mb-5">
                           <p className="font-bold text-[#1E293B] text-lg font-serif">{train.title}</p>
-                          <span className="text-[10px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium">{train.year}</span>
+                          <span className="text-[11px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium">{train.year}</span>
                         </div>
                         <p className="text-[11px] text-[#64748B] font-bold uppercase mb-5 tracking-widest font-serif">{train.provider}</p>
                         <p className="text-[14px] text-[#475569] font-medium leading-relaxed bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-inner font-serif" style={{ wordBreak: 'keep-all' }}>
@@ -720,12 +720,12 @@ const App = () => {
         </main>
 
         <footer className="mt-40 text-center py-16 border-t border-[#F1F5F9] flex flex-col items-center gap-8 font-serif">
-          <div className="flex gap-12 text-[#94A3B8] text-[10px] font-serif font-bold tracking-[0.4em] uppercase">
+          <div className="flex gap-12 text-[#94A3B8] text-[11px] font-serif font-bold tracking-[0.4em] uppercase">
                 <span>Portfolio</span>
                 <span className="text-[#CBD5E1]">•</span>
                 <span>© 2026 {profileData.name}</span>
           </div>
-          <p className="text-[#CBD5E1] text-[10px] font-bold tracking-widest uppercase font-serif">All Rights Reserved</p>
+          <p className="text-[#CBD5E1] text-[11px] font-bold tracking-widest uppercase font-serif">All Rights Reserved</p>
         </footer>
 
         {/* Profile Photo Modal */}
