@@ -85,7 +85,7 @@ const App = () => {
       }
     ],
     keywords: ["제휴 파트너사 관리", "고객사 문의 대응", "B2G 사업 용역 관리", "영업 오퍼레이션 지원", "SQL 데이터 분석", "업무 프로세스 자동화"],
-    profileImageUrl: "/user_uploaded_image.jpg" // Relative path for the uploaded image
+    profileImageUrl: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/db1591dbe74898c751e1a45480a8a7993a6dfae2/KakaoTalk_20251120_162616703.jpg"
   };
 
   const careerHistory = [
@@ -363,18 +363,15 @@ const App = () => {
               ))}
             </div>
             <div className="flex items-center gap-4 mb-4">
-              <h1 className="text-3xl md:text-5xl font-serif text-[#1E293B] tracking-tighter font-bold">
-                {profileData.name}
-              </h1>
               <button 
                 onClick={() => setIsPhotoModalOpen(true)}
                 className="w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 border-[#E2E8F0] hover:border-[#00C73C] transition-all shadow-sm shrink-0 group relative"
                 title="클릭하여 크게 보기"
               >
                 <img 
-                  src="/user_uploaded_image.jpg" 
+                  src="https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/db1591dbe74898c751e1a45480a8a7993a6dfae2/KakaoTalk_20251120_162616703.jpg" 
                   alt="Profile" 
-                  className="w-full h-full object-cover object-[82%_20%] group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-[82%_18%] group-hover:scale-110 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
@@ -384,6 +381,9 @@ const App = () => {
                   <Zap size={16} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </button>
+              <h1 className="text-3xl md:text-5xl font-serif text-[#1E293B] tracking-tighter font-bold">
+                {profileData.name}
+              </h1>
               <span className="text-sm md:text-base font-serif text-[#94A3B8] font-bold uppercase tracking-widest self-end pb-1 md:pb-2">{profileData.role}</span>
             </div>
             <p className="text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] font-serif font-bold leading-relaxed tracking-tight italic" style={{ wordBreak: 'keep-all' }}>
@@ -738,7 +738,7 @@ const App = () => {
             <div className="relative max-w-sm w-full bg-white rounded-[2.5rem] overflow-hidden shadow-2xl animate-in slide-in-from-top-8 duration-500 border border-[#F1F5F9] p-2 mb-10">
               <div className="relative h-80 rounded-[2rem] overflow-hidden bg-[#F8FAFC]">
                 <img 
-                  src="/user_uploaded_image.jpg" 
+                  src="https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/db1591dbe74898c751e1a45480a8a7993a6dfae2/KakaoTalk_20251120_162616703.jpg" 
                   alt="2026 Place& Official Model" 
                   className="w-full h-full object-cover object-[82%_20%]"
                   referrerPolicy="no-referrer"
@@ -746,12 +746,6 @@ const App = () => {
                     e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
                   }}
                 />
-                <button 
-                  onClick={() => setIsPhotoModalOpen(false)}
-                  className="absolute top-4 right-4 p-2 bg-white/80 hover:bg-white text-[#1E293B] rounded-full shadow-lg transition-all"
-                >
-                  <Check size={18} />
-                </button>
               </div>
               
               <div className="p-8 text-center">
@@ -766,7 +760,7 @@ const App = () => {
                   onClick={() => setIsPhotoModalOpen(false)}
                   className="mt-8 w-full py-4 bg-[#1E293B] text-white rounded-2xl font-bold hover:bg-[#00C73C] transition-all text-sm shadow-lg"
                 >
-                  확인
+                  닫기
                 </button>
               </div>
             </div>
