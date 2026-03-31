@@ -872,6 +872,28 @@ const App = () => {
 
                 <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
                   <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
+                    <BadgeCheck className="text-[#00A9E0]" size={26} /> 자격 사항
+                  </h3>
+                  <div className="grid grid-cols-1 gap-3">
+                    {qualifications.certs.map((cert, i) => (
+                      <div key={i} className="flex items-start justify-between p-5 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:bg-white transition-all group">
+                        <div className="flex items-start gap-5">
+                          <FileText size={16} className="text-[#CBD5E1] group-hover:text-[#00A9E0] mt-1 shrink-0" strokeWidth={2.5}/>
+                          <div className="flex flex-col" style={{ wordBreak: 'keep-all' }}>
+                            <span className="font-bold text-[15px] text-[#1E293B] leading-tight font-serif">{cert.name}</span>
+                            <span className="text-[11px] text-[#94A3B8] font-bold uppercase tracking-tighter mt-1 font-serif">{cert.issuer}</span>
+                          </div>
+                        </div>
+                        <span className="text-[11px] font-bold text-[#64748B] tracking-wider font-sans shrink-0 ml-4 mt-1">{cert.date}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </div>
+              
+              <div className="space-y-10">
+                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
+                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
                     <Award className="text-[#00A9E0]" size={26} /> 수상 내역
                   </h3>
                   <div className="space-y-4">
@@ -962,28 +984,6 @@ const App = () => {
                             </motion.div>
                           )}
                         </AnimatePresence>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              </div>
-              
-              <div className="space-y-10">
-                <section className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0]">
-                  <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
-                    <BadgeCheck className="text-[#00A9E0]" size={26} /> 자격 사항
-                  </h3>
-                  <div className="grid grid-cols-1 gap-3">
-                    {qualifications.certs.map((cert, i) => (
-                      <div key={i} className="flex items-start justify-between p-5 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:bg-white transition-all group">
-                        <div className="flex items-start gap-5">
-                          <FileText size={16} className="text-[#CBD5E1] group-hover:text-[#00A9E0] mt-1 shrink-0" strokeWidth={2.5}/>
-                          <div className="flex flex-col" style={{ wordBreak: 'keep-all' }}>
-                            <span className="font-bold text-[15px] text-[#1E293B] leading-tight font-serif">{cert.name}</span>
-                            <span className="text-[11px] text-[#94A3B8] font-bold uppercase tracking-tighter mt-1 font-serif">{cert.issuer}</span>
-                          </div>
-                        </div>
-                        <span className="text-[11px] font-bold text-[#64748B] tracking-wider font-sans shrink-0 ml-4 mt-1">{cert.date}</span>
                       </div>
                     ))}
                   </div>
