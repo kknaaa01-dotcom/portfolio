@@ -79,16 +79,16 @@ const App = () => {
     },
     summaryPoints: [
       {
-        title: "타인을 돕고자 하는 진심을 '시스템'으로 치환합니다.",
-        desc: "동료들의 업무 효율을 높이기 위해 데이터와 프로세스를 정리하고 자동화 구조를 설계하는 태도가 저의 가장 큰 기획력입니다."
+        title: "타인을 돕고자 하는 진심을 ['시스템']으로 치환합니다.",
+        desc: "동료들의 업무 효율을 높이기 위해 [데이터와 프로세스를 정리]하고 [자동화 구조를 설계]하는 태도가 저의 가장 큰 기획력입니다."
       },
       {
-        title: "데이터로 조직의 언어를 연결하는 중간 조율자입니다.",
-        desc: "SQL 기반의 데이터 리터러시를 활용해 사업부의 니즈를 데이터로 증명하며 R&D팀과의 협업 리소스를 획기적으로 절감합니다."
+        title: "데이터로 조직의 언어를 연결하는 [중간 조율자]입니다.",
+        desc: "[SQL 기반의 데이터 리터러시]를 활용해 사업부의 니즈를 데이터로 증명하며 [R&D팀과의 협업 리소스]를 획기적으로 절감합니다."
       },
       {
-        title: "비즈니스의 안정성과 수익성을 동시에 고려합니다.",
-        desc: "단순 행정 지원을 넘어 예산 흐름과 운영 체계를 재설계하여 사업의 구조적 안정화를 이끌어낸 실무 경험을 보유하고 있습니다."
+        title: "비즈니스의 [안정성과 수익성]을 동시에 고려합니다.",
+        desc: "단순 행정 지원을 넘어 [예산 흐름과 운영 체계를 재설계]하여 사업의 구조적 안정화를 이끌어낸 실무 경험을 보유하고 있습니다."
       }
     ],
     keywords: ["제휴 파트너사 관리", "고객사 문의 대응", "B2G 사업 용역 관리", "영업 오퍼레이션 지원", "SQL 데이터 분석", "업무 프로세스 자동화"],
@@ -138,15 +138,36 @@ const App = () => {
 
   const projectData = [
     {
+      category: "공공 사업 (B2G)",
+      icon: ShieldCheck,
+      isCaseStudy: true,
+      title: "B2G 공공 사업 제안·입찰 및 수주 운영",
+      impact: "2014년 이후 첫 흑자 전환 및 순익 약 10억 창출",
+      challenge: "초기 내부 인력 2명으로 진행되며 예산 관리 및 운영 프로세스 미비로 인한 예산 초과 발생",
+      solution: "예산 흐름 전면 재정리 및 비용 구조 세분화를 통한 실시간 손익 대시보드 구축, 매장별 특이사항 및 자부담금 관리를 포함한 전방위적 통합 운영 프로세스 재설계",
+      targets: [
+        "경상북도경제진흥원 '2025 K-외식산업 기반구축 사업'",
+        "경상북도경제진흥원 '2025년 경영혁신 외식서비스 지원 사업'",
+        "소상공인시장진흥공단 '2026년 스마트상점 기술보급 사업'",
+        "대전서구청 '2026 제로웨이스트 카페로드 적립서비스 운영'"
+      ],
+      details: [
+        "예산 흐름 전면 재정리 및 비용 구조 세분화로 [실시간 손익 대시보드 구축]",
+        "매장별 특이사항, 설치 현황, 자부담금 관리까지 [통합 운영 체계 마련]",
+        "계약서·산출내역서·세금계산서 등 [계약~정산 전 과정 서류 책임 관리]",
+        "최종 용역비 수령을 위한 [보고자료 작성 및 사업 운영 전반 통합 리딩]"
+      ]
+    },
+    {
       category: "네이버 플레이스",
       icon: UtensilsCrossed,
       title: "네이버 예약 영업대행 및 기획전 관리",
       impact: "호텔/다이닝 세일즈 가속화 및 성과 리포팅",
       details: [
-        "인기 식당 및 파인다이닝 대상 예약 프로세스 관리",
-        "미식 셀렉션 호텔뷔페 기획전 입점 프로세스 리딩",
-        "영업 리드 기반의 입점 가입 준수 여부 정밀 검수",
-        "기획전 성과 데이터 모니터링 및 영업 현장 피드백"
+        "인기 식당 및 파인다이닝 대상 [예약 프로세스 관리]",
+        "미식 셀렉션 호텔뷔페 기획전 [입점 프로세스 리딩]",
+        "영업 리드 기반의 입점 가입 준수 여부 [정밀 검수]",
+        "기획전 [성과 데이터 모니터링] 및 영업 현장 피드백"
       ]
     },
     {
@@ -155,28 +176,10 @@ const App = () => {
       title: "네이버 파이낸셜 '커넥트' 단말기 영업 관리",
       impact: "결제 단말기 도입 활성화 및 정산 체계화",
       details: [
-        "인기 식당 대상 결제 단말기 오퍼레이션 전담",
-        "단말기 도입 계약서 검토, 날인 관리 및 활성화 병목 제거",
-        "영업 인력별 유입 리드 분석 및 기여도 데이터 구축",
-        "플랫폼사와 영업 현장 간 단말기 공급 체계 유지"
-      ]
-    },
-    {
-      category: "공공 사업 (B2G)",
-      icon: ShieldCheck,
-      title: "B2G 공공 사업 제안·입찰 및 수주 운영",
-      impact: "입찰을 통한 사업 수주 및 안정적 운영",
-      targets: [
-        "경상북도경제진흥원 '2025 K-외식산업 기반구축 사업'",
-        "경상북도경제진흥원 '2025년 경영혁신 외식서비스 지원 사업'",
-        "소상공인시장진흥공단 '2026년 스마트상점 기술보급 사업'",
-        "대전서구청 '2026 제로웨이스트 카페로드 적립서비스 운영'"
-      ],
-      details: [
-        "공공기관 용역 입찰 참여 및 최종 사업 수주 달성",
-        "제안서 작성부터 청구, 정산, 보고 전 과정 리딩",
-        "사업 관련 파트너사 커뮤니케이션 및 협업 관리",
-        "실시간 손익 대시보드 구축으로 예산 리스크 관리"
+        "인기 식당 대상 [결제 단말기 오퍼레이션 전담]",
+        "단말기 도입 [계약서 검토, 날인 관리] 및 활성화 병목 제거",
+        "영업 인력별 리드 분배 및 [성과 데이터 분석]",
+        "플랫폼사와 영업 현장 간 [단말기 공급 체계 유지]"
       ]
     },
     {
@@ -185,10 +188,10 @@ const App = () => {
       title: "POS 파트너 제휴 및 영업 채널 확장",
       impact: "신규 리드 채널 확보 및 파트너십 강화",
       details: [
-        "스마트로·바로고·페이앤 등 6개 POS사 제휴 관리",
-        "파트너사별 수수료 정산 및 데이터 검증 체계 책임",
+        "스마트로·바로고·페이앤 등 [POS사 제휴 관리]",
+        "수수료 [정산 및 데이터 검증] 체계 책임",
         "채널별 영업 데이터 수집 및 가공을 통한 지표 분석",
-        "협업 툴 활용 파트너사 성과 실시간 공유 체계 구축"
+        "협업 툴 활용 파트너사 [성과 실시간 공유 체계 구축]"
       ]
     },
     {
@@ -197,10 +200,10 @@ const App = () => {
       title: "대형 브랜드(KA) 프랜차이즈 통합 관리",
       impact: "나이키·신세계 등 핵심 고객사 신뢰 확보",
       details: [
-        "나이키·신세계·무신사·명륜당 등 핵심 브랜드 관리",
-        "대형 고객사별 맞춤형 솔루션 제안 및 정산 데이터화",
-        "브랜드 특이사항 선제 대응 및 고객사 만족도 제고",
-        "성과 지표 분석 기반의 정기 리포트 발행 및 조율"
+        "나이키·신세계·무신사·명륜당 등 [핵심 브랜드 관리]",
+        "대형 고객사별 맞춤형 솔루션 제안 및 [정산 데이터화]",
+        "[브랜드 특이사항 선제 대응] 및 고객사 만족도 제고",
+        "성과 지표 분석 기반의 [정기 리포트 발행 및 조율]"
       ]
     },
     {
@@ -209,10 +212,10 @@ const App = () => {
       title: "쿠팡·컬리 물류센터 전용 솔루션 오퍼레이션",
       impact: "물류 최적화 시스템 운영 지원 및 데이터 연동",
       details: [
-        "물류센터 전용 웨이팅 계약 체결 및 운영 전반 관리",
-        "물류센터별 서비스 신규 계약 시 스팟 개설 및 지원",
-        "물류 특화 솔루션의 월 단위 정산 및 데이터 연동 관리",
-        "사업-개발부 사이의 정밀한 데이터 가이드라인 정립"
+        "물류센터 전용 [계약 체결 및 운영 전반 관리]",
+        "물류센터별 서비스 [신규 계약 시 스팟 개설 및 지원]",
+        "물류 특화 솔루션의 [월 단위 정산 및 데이터 연동 관리]",
+        "사업-개발부 사이의 [정밀한 데이터 가이드라인 정립]"
       ]
     }
   ];
@@ -251,11 +254,11 @@ const App = () => {
       image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/2715efa3fefe61981a2c7b914a41c7dcbdb3efda/%EB%A7%A4%ED%81%AC%EB%A1%9C%20%ED%81%AC%EB%A1%A4%EB%A7%81.png"
     },
     { 
-      name: "협업 도구 (Notion/Slack)", 
+      name: "지식 관리 및 협업 (Notion/Confluence)", 
       IconComp: Layers, 
       iconColor: "text-[#6366F1]", 
-      desc: "효율적인 커뮤니케이션 및 업무 문서화",
-      details: "Notion을 활용하여 팀 내 업무 매뉴얼과 프로젝트 지식 베이스를 체계적으로 구축합니다. Slack 워크플로우를 설계하여 실시간 알림 및 보고 체계를 자동화하고, 투명한 정보 공유 문화를 조성하여 협업 리소스를 절감합니다.",
+      desc: "체계적인 업무 문서화 및 지식 베이스 구축",
+      details: "Notion과 Confluence를 활용하여 팀 내 업무 매뉴얼, 프로젝트 히스토리, 지식 베이스를 체계적으로 구축하고 관리합니다. 복잡한 정보를 구조화하여 팀원 간의 정보 비대칭을 해소하고, 투명한 정보 공유 문화를 조성하여 협업 리소스를 절감합니다.",
       image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/0aa1048a5e22c8fb9b6202c55cb39da9fc6100d4/%EB%85%B8%EC%85%98.png"
     },
     { 
@@ -375,6 +378,21 @@ const App = () => {
     ]
   };
 
+  const renderHighlightedText = (text) => {
+    if (!text) return null;
+    const parts = text.split(/(\[.*?\])/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('[') && part.endsWith(']')) {
+        return (
+          <span key={i} className="text-[#00A9E0] font-bold">
+            {part.slice(1, -1)}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   const NavItem = ({ id, label, icon: Icon }) => (
     <button
       onClick={() => setActiveTab(id)}
@@ -409,15 +427,15 @@ const App = () => {
                 <span>영업지원 및 사업관리</span>
             </div>
             <p className="text-[#334155] font-serif text-lg md:text-2xl leading-relaxed max-w-3xl text-center font-medium" style={{ wordBreak: 'keep-all' }}>
-              "타인을 돕고자 하는 진심을 <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] font-bold">비즈니스 오퍼레이션 설계</span>로 증명합니다."
+              "B2G 사업 순이익 약 10억 달성으로 <br className="hidden md:block"/>
+              회사의 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] font-bold">흑자 전환을 이끈 비즈니스 오퍼레이션 설계 전문가</span>입니다."
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {[
               { id: 'profile', label: '경력 및 역량', desc: 'EXPERTISE', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800' },
-              { id: 'projects', label: '성과 사례', desc: 'IMPACT', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
+              { id: 'projects', label: '프로젝트 사례', desc: 'IMPACT', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
               { id: 'tech', label: '기술/도구', desc: 'DIGITAL', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800' },
               { id: 'edu', label: '학력/자격', desc: 'HISTORY', img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800' }
             ].map((btn) => (
@@ -517,7 +535,7 @@ const App = () => {
 
         <nav className="flex flex-wrap gap-3 mb-16 justify-start border-b border-[#F1F5F9] pb-8">
           <NavItem id="profile" label="경력 및 역량" icon={Target} />
-          <NavItem id="projects" label="성과 사례" icon={Rocket} />
+          <NavItem id="projects" label="프로젝트 사례" icon={Rocket} />
           <NavItem id="tech" label="기술/도구" icon={Wrench} />
           <NavItem id="edu" label="학력/자격" icon={GraduationCap} />
         </nav>
@@ -537,8 +555,8 @@ const App = () => {
                         <div key={i} className="flex gap-8 group">
                           <span className="font-sans text-5xl text-[#E2E8F0] group-hover:text-[#00A9E0] transition-colors leading-none font-black">0{i+1}</span>
                           <div style={{ wordBreak: 'keep-all' }}>
-                            <h4 className="font-bold text-[#1E293B] text-lg mb-3 tracking-tight">{point.title}</h4>
-                            <p className="text-[#475569] text-[15px] leading-relaxed font-medium">{point.desc}</p>
+                            <h4 className="font-bold text-[#1E293B] text-lg mb-3 tracking-tight">{renderHighlightedText(point.title)}</h4>
+                            <p className="text-[#475569] text-[15px] leading-relaxed font-medium">{renderHighlightedText(point.desc)}</p>
                           </div>
                         </div>
                       ))}
@@ -547,10 +565,10 @@ const App = () => {
                   <div className="mt-16 p-10 bg-white rounded-[2.5rem] shadow-sm border border-[#E2E8F0] relative overflow-hidden group">
                     <div className="absolute left-0 top-0 w-1.5 h-full bg-[#00C73C]"></div>
                     <h4 className="font-bold text-[#1E293B] text-md mb-3 flex items-center gap-3">
-                      <ShieldCheck size={22} className="text-[#00C73C]" /> 전방위적 비즈니스 오퍼레이션 완수 역량
+                      <ShieldCheck size={22} className="text-[#00C73C]" /> {renderHighlightedText("[전방위적 비즈니스 오퍼레이션] 완수 역량")}
                     </h4>
                     <p className="text-[#475569] text-[14px] leading-relaxed font-medium" style={{ wordBreak: 'keep-all' }}>
-                      제휴사 관리 및 고객 응대부터 B2G 사업 지원, 복잡한 정산 프로세스 정립까지 비즈니스 운영의 전 과정을 무결점으로 지원합니다.<br />GAS(Google Apps Script) 자동화 및 Redash 쿼리 추출 역량을 바탕으로 운영의 모든 단계를 체계화하는 데 강점이 있습니다.
+                      {renderHighlightedText("[제휴사 관리] 및 [고객 응대]부터 [B2G 사업 지원], [복잡한 정산 프로세스 정립]까지 비즈니스 운영의 전 과정을 무결점으로 지원합니다.")}<br />{renderHighlightedText("[GAS 자동화] 및 [Redash 쿼리 추출 역량]을 바탕으로 운영의 모든 단계를 체계화하는 데 강점이 있습니다.")}
                     </p>
                   </div>
                 </div>
@@ -592,10 +610,13 @@ const App = () => {
                               href={career.url} 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="text-2xl font-serif text-[#1E293B] mb-1 font-bold hover:text-[#00C73C] transition-colors flex items-center gap-2 group/link"
+                              className="text-2xl font-serif text-[#1E293B] mb-1 font-bold hover:text-[#00C73C] transition-colors flex items-center gap-2 group/link underline decoration-dotted underline-offset-8 decoration-[#E2E8F0] hover:decoration-[#00C73C]"
                             >
                               {career.company}
-                              <ArrowRight size={18} className="opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                              <div className="flex items-center gap-1.5 bg-[#F8FAFC] px-2.5 py-1 rounded-lg border border-[#E2E8F0] group-hover/link:border-[#00C73C] group-hover/link:bg-[#F0FDF4] transition-all ml-1 no-underline">
+                                <Globe size={12} className="text-[#94A3B8] group-hover/link:text-[#00C73C]" />
+                                <span className="text-[10px] text-[#94A3B8] group-hover/link:text-[#00C73C] uppercase tracking-wider font-sans font-bold">Visit</span>
+                              </div>
                             </a>
                           ) : (
                             <h4 className="text-2xl font-serif text-[#1E293B] mb-1 font-bold">{career.company}</h4>
@@ -623,7 +644,13 @@ const App = () => {
           {activeTab === 'projects' && (
             <div className="grid grid-cols-1 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
               {projectData.map((project, index) => (
-                <div key={index} className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0] relative overflow-hidden group">
+                <div key={index} className={`bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-[#E2E8F0] relative overflow-hidden group ${project.isCaseStudy ? 'ring-2 ring-[#00A9E0]/20' : ''}`}>
+                  {project.isCaseStudy && (
+                    <div className="absolute top-0 right-0 bg-gradient-to-l from-[#00A9E0] to-[#00C73C] text-white px-8 py-2 rounded-bl-3xl text-[11px] font-black uppercase tracking-[0.2em] z-10 shadow-lg">
+                      Signature Case Study
+                    </div>
+                  )}
+                  
                   <div className="flex flex-col md:flex-row justify-between md:items-start mb-12 gap-8">
                     <div className="flex gap-8 flex-1 items-center">
                       <div className="w-[84px] h-[84px] flex items-center justify-center bg-gradient-to-br from-[#00C73C] to-[#00A9E0] rounded-[2rem] text-white shadow-lg shrink-0">
@@ -634,7 +661,7 @@ const App = () => {
                       </div>
                       <div style={{ wordBreak: 'keep-all' }}>
                         <span className="text-[17px] font-black uppercase tracking-[0.15em] text-[#94A3B8] mb-2 block font-sans">0{index+1}. {project.category}</span>
-                        <h3 className="text-2xl md:text-3xl font-serif text-[#1E293B] mb-2 font-bold">{project.title}</h3>
+                        <h3 className="text-2xl md:text-3xl font-serif text-[#1E293B] mb-2 font-bold">{renderHighlightedText(project.title)}</h3>
                         <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00C73C] to-[#00A9E0] tracking-tight font-serif">{project.impact}</p>
                       </div>
                     </div>
@@ -651,18 +678,59 @@ const App = () => {
                     )}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {project.details.map((detail, i) => (
-                      <div key={i} className="flex items-center gap-5 p-7 bg-[#F8FAFC] rounded-3xl border border-[#E2E8F0] hover:bg-white transition-all hover:shadow-xl group">
-                        <div className="w-9 h-9 bg-white border-2 border-[#E2E8F0] group-hover:border-[#00C73C] rounded-xl flex items-center justify-center shadow-sm text-[#00C73C] text-sm font-black shrink-0 transition-colors leading-none font-sans">
-                          {i + 1}
+                  {project.isCaseStudy ? (
+                    <div className="space-y-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-[#FFF1F2] p-8 rounded-[2.5rem] border border-red-100 relative overflow-hidden group/box">
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-red-200/20 rounded-bl-full pointer-events-none"></div>
+                          <h4 className="text-red-600 font-black text-[11px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                            <Zap size={14} /> Challenge
+                          </h4>
+                          <p className="text-[#1E293B] font-bold text-[15px] leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+                            {project.challenge}
+                          </p>
                         </div>
-                        <span className="text-[#334155] font-semibold text-[14px] md:text-[15px] leading-snug self-center" style={{ wordBreak: 'keep-all' }}>
-                          {detail}
-                        </span>
+                        <div className="bg-[#F0FDF4] p-8 rounded-[2.5rem] border border-emerald-100 relative overflow-hidden group/box">
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-200/20 rounded-bl-full pointer-events-none"></div>
+                          <h4 className="text-emerald-600 font-black text-[11px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                            <CheckCircle2 size={14} /> Solution
+                          </h4>
+                          <p className="text-[#1E293B] font-bold text-[15px] leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+                            {project.solution}
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                      
+                      <div className="bg-[#F8FAFC] p-10 rounded-[3rem] border border-[#E2E8F0]">
+                        <h4 className="text-[#94A3B8] font-black text-[11px] uppercase tracking-[0.2em] mb-8">Detailed Action Items</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          {project.details.map((detail, i) => (
+                            <div key={i} className="flex items-center gap-5 p-7 bg-white rounded-3xl border border-[#E2E8F0] hover:border-[#00C73C] transition-all hover:shadow-xl group">
+                              <div className="w-9 h-9 bg-[#F8FAFC] border-2 border-[#E2E8F0] group-hover:border-[#00C73C] rounded-xl flex items-center justify-center shadow-sm text-[#00C73C] text-sm font-black shrink-0 transition-colors leading-none font-sans">
+                                {i + 1}
+                              </div>
+                              <span className="text-[#334155] font-semibold text-[14px] md:text-[15px] leading-snug self-center" style={{ wordBreak: 'keep-all' }}>
+                                {renderHighlightedText(detail)}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      {project.details.map((detail, i) => (
+                        <div key={i} className="flex items-center gap-5 p-7 bg-[#F8FAFC] rounded-3xl border border-[#E2E8F0] hover:bg-white transition-all hover:shadow-xl group">
+                          <div className="w-9 h-9 bg-white border-2 border-[#E2E8F0] group-hover:border-[#00C73C] rounded-xl flex items-center justify-center shadow-sm text-[#00C73C] text-sm font-black shrink-0 transition-colors leading-none font-sans">
+                            {i + 1}
+                          </div>
+                          <span className="text-[#334155] font-semibold text-[14px] md:text-[15px] leading-snug self-center" style={{ wordBreak: 'keep-all' }}>
+                            {renderHighlightedText(detail)}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
