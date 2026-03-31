@@ -418,7 +418,7 @@ const App = () => {
           <div className="flex flex-col items-center mb-16">
             <div className="w-16 h-[3px] bg-gradient-to-r from-[#00C73C] to-[#00A9E0] mb-10 rounded-full"></div>
             <h2 className="text-[#64748B] font-serif tracking-[0.4em] uppercase text-[11px] md:text-xs mb-6 font-medium">Portfolio</h2>
-            <h1 className="text-5xl md:text-7xl font-serif font-black text-[#1E293B] mb-8 tracking-tighter text-center leading-tight">
+            <h1 className="text-5xl md:text-7xl font-serif font-black text-[#1E293B] mb-8 tracking-[0.15em] text-center leading-tight">
               {profileData.name}
             </h1>
             <div className="flex items-center gap-6 text-[#00A9E0] font-serif font-bold text-lg md:text-2xl uppercase tracking-[0.2em] mb-12">
