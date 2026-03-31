@@ -43,14 +43,19 @@ import {
   Check,
   School,
   ArrowRight,
-  Home
+  Home,
+  ChevronDown
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('profile');
   const [showCover, setShowCover] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
+  const [expandedAward, setExpandedAward] = useState(null);
+  const [expandedActivity, setExpandedActivity] = useState(null);
+  const [expandedTraining, setExpandedTraining] = useState(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -226,30 +231,90 @@ const App = () => {
       { degree: "고등학교 중퇴", school: "동일여자고등학교 (서울)", period: "2016.03 - 2017.04", grade: "-" }
     ],
     awards: [
-      { title: "2025년 직장어린이집 THE-자람 보육프로그램 공모전", provider: "카카오/공단", year: "2025" },
-      { title: "2024년 직장어린이집 多가치 으쓱(ESG)공모전 - ESG 적극 실천 어린이집", provider: "근로복지공단", year: "2024" },
-      { title: "협동창의 교육·복지 EXPO 수업시연 경진대회 우수상", provider: "건양대학교", year: "2023" },
-      { title: "협동창의 교육·복지 EXPO 수업시연 경진대회 장려상", provider: "건양대학교", year: "2022" },
-      { title: "협동창의 교육·복지 EXPO 교재교구 개발 경진대회 최우수상", provider: "건양대학교", year: "2022" }
+      { 
+        title: "2025년 직장어린이집 THE-자람 보육프로그램 공모전", 
+        provider: "근로복지공단", 
+        year: "2025",
+        organization: "근로복지공단/(주)카카오/늘예솔어린이집",
+        period: "2024.05 - 2024.08 (약 3개월)",
+        role: "만 5세반 담임교사로서 보육프로그램 기획 및 캠페인 진행",
+        achievement: "(주)카카오와 협력하여 '아.이.디(아이들과 함께 이루어가는 디지털 세상) 캠페인'을 기획·진행하였습니다. 아동의 디지털 권리(초상권, 저작권, 개인정보 등)에 대한 인식 제고를 목표로 교육 프로그램을 계획하고 수업 및 캠페인 행사 진행, 교육 영상 및 보고서 작성, 굿즈 디자인·제작·판매 및 수익금 기부까지 전 과정에 담임교사로서 주도하였습니다."
+      },
+      { 
+        title: "2024년 직장어린이집 多가치 으쓱(ESG) 공모전 - ESG 적극 실천 어린이집", 
+        provider: "근로복지공단", 
+        year: "2024",
+        organization: "근로복지공단/늘예솔어린이집",
+        period: "2024.10 - 2024.12 (약 2개월)",
+        role: "만 5세반 담임교사로서 보육프로그램 기획 및 캠페인 진행",
+        achievement: "한글 가치 확산을 위해 수업 및 '소중한글 위대한글' 나눔 캠페인을 기획·진행하였습니다. 직장인들을 대상으로 유아들과 함께 한글 책·물품을 재활용한 알뜰시장을 운영하고, 한글 굿즈 디자인·판매 및 수익금을 기부하는 등 담임교사로서 다양한 활동을 주도하며 ESG 가치 실현을 인정받아 2024년 근로복지공단 주최 'ESG 적극 실천 어린이집' 부문에서 수상하였습니다."
+      },
+      { 
+        title: "협동창의 교육·복지 EXPO 수업시연 경진대회 우수상", 
+        provider: "건양대학교 재활복지교육대학", 
+        year: "2023",
+        organization: "건양대학교 재활복지교육대학",
+        period: "2023.09 - 2023.11 (약 3개월)",
+        role: "교육 프로그램 기획 및 시연 진행",
+        achievement: "유아의 창의적 사고와 협력 능력 향상을 목표로 한 활동 중심 교육 프로그램을 직접 기획·운영하였습니다. 주제와 목표를 설정한 뒤, 시청각 자료 제작, 활동 교구 준비, 수업 시연 리허설 등을 거쳐 EXPO 현장에서 발표를 진행하였으며, 프로그램의 창의성과 실효성을 인정받아 우수상을 수상하였습니다."
+      },
+      { 
+        title: "협동창의 교육·복지 EXPO 수업시연 경진대회 장려상", 
+        provider: "건양대학교 재활복지교육대학", 
+        year: "2022",
+        organization: "건양대학교 재활복지교육대학",
+        period: "2022.09 - 2022.11 (약 3개월)",
+        role: "교육 주제 선정, 수업 시연 자료 제작 및 시연 발표",
+        achievement: "아동의 정서 발달과 사회성 함양을 위한 참여형 수업안을 기획하고, 스토리텔링과 체험 활동을 결합한 시연을 진행했습니다. 시연 과정에서 학습 목표와 활동 흐름을 효과적으로 전달하여 심사위원으로부터 긍정적인 평가를 받았으며, 참신한 아이디어와 실천 가능성을 인정받아 장려상을 수상하였습니다."
+      },
+      { 
+        title: "협동창의 교육·복지 EXPO 교재교구 개발 경진대회 최우수상", 
+        provider: "건양대학교 재활복지교육대학", 
+        year: "2022",
+        organization: "건양대학교 재활복지교육대학",
+        period: "2022.04 - 2022.06 (약 2개월)",
+        role: "교육용 교재·교구 기획, 제작, 시연",
+        achievement: "아동의 인지 발달과 문제 해결 능력을 향상시키기 위해 창의적이고 실용적인 교육용 교재·교구를 설계·제작하였습니다. 소재 선정, 디자인, 제작 과정 전반을 주도하고, 사용 방법과 교육 효과를 시연을 통해 제시했습니다. 심사 과정에서 독창성, 완성도, 교육 효과 측면에서 높은 점수를 받아 최우수상을 수상하였습니다."
+      }
     ],
     activities: [
-      { title: "부여유치원 인턴 (실습교사)", period: "2023.05", desc: "수업 실습 및 놀이 상호작용" },
-      { title: "성심어린이집 인턴 (실습교사)", period: "2022.07 - 2022.08", desc: "영유아 발달 관찰 및 지원" },
-      { title: "인형극 동아리 '인우리' 회장", period: "2021.08 - 2022.12", desc: "기획 및 실연 총괄" },
-      { title: "건양대 부속유치원 봉사", period: "2022.03 - 2022.06", desc: "학습 지원 및 보조" }
+      { 
+        title: "부여유치원 인턴 (실습교사)", 
+        period: "2023.05", 
+        duration: "1개월",
+        desc: "유치원 실습교사로서 만 3세 꿈2반 아동의 놀이 상호작용을 돕고, 교구 제작 및 활동 보조를 맡았습니다. 또한, 아동의 발달을 관찰하여 관찰일지를 작성하고, 수업 실습을 통해 교육적 접근 방안을 실험하며 현장 경험을 쌓았습니다." 
+      },
+      { 
+        title: "건양대학교 인형극 동아리 '인우리'", 
+        period: "2021.08 - 2022.12", 
+        duration: "1년 5개월",
+        desc: "대학교 재학 중 인형극 동아리 ‘인우리’ 활동을 통해 부속 유치원을 방문하여 직접 제작한 인형극을 기획하고 실연하는 경험을 했습니다. 이 활동을 통해 아동 발달 단계에 맞는 콘텐츠를 구상하고 구현하는 능력을 키웠으며, 팀원들과 협업하며 기획력과 의사소통 능력을 높일 수 있었습니다. 또한 무대 연출과 인형 제작, 실연 과정 전반을 주도하며 창의력과 문제 해결 능력, 현장 실천 역량도 함께 기를 수 있었습니다." 
+      },
+      { 
+        title: "성심어린이집 인턴 (실습교사)", 
+        period: "2022.07 - 2022.08", 
+        duration: "2개월",
+        desc: "어린이집 실습교사로서 만 2세 이삭반 아동과의 놀이 상호작용을 돕고, 교구 제작 및 활동 보조를 맡았습니다. 아동 발달을 관찰하여 관찰일지를 작성하고, 수업 실습을 통해 교육적 접근을 실험하며 현장 경험을 쌓았습니다." 
+      },
+      { 
+        title: "건양대학교 부속유치원 자원봉사", 
+        period: "2022.03 - 2022.06", 
+        duration: "4개월",
+        desc: "부속유치원 자원봉사자로서 만 5세 온누리반 아동과의 놀이 상호작용을 돕고, 교구 제작 및 활동 보조를 맡았습니다. 아동들의 학습과 발달을 지원하는 데 적극적으로 참여하여 교육 활동을 보조하는 역할을 수행하며 현장 경험을 쌓았습니다." 
+      }
     ],
     trainings: [
       { 
         title: "동화책을 이용한 앱 기반 구연 방법", 
-        year: "2022", 
-        provider: "건양대 취창업지원센터", 
-        summary: "디지털 기술을 활용한 창의적인 수업 기획 및 스토리텔링 앱 구현 역량 확보" 
+        year: "2022.06", 
+        provider: "건양대학교 취창업지원센터", 
+        summary: "‘동화책을 이용한 앱 기반 구연 방법’ 교육을 이수하며 블록 코딩 및 앱 인벤터 활용 능력을 키우고, 디지털 기술을 활용한 창의적인 수업 기획 역량을 함께 발전시킬 수 있었습니다. 특히 동화 콘텐츠를 앱으로 구현하는 과정을 통해 이야기 구성력과 스토리텔링 능력이 향상되었고, 아동의 흥미를 유도하는 인터랙티브한 교육 콘텐츠를 기획·제작하는 능력도 함께 기를 수 있었습니다." 
       },
       { 
-        title: "앱 인벤터 이용 컴퓨터 사고 활용", 
-        year: "2021", 
-        provider: "건양대 취창업지원센터", 
-        summary: "컴퓨팅 사고력 기반의 문제 해결 능력 및 사용자 중심 UI/UX 기획 역량 강화" 
+        title: "앱 인벤터(App Inventor) 이용 컴퓨터 사고 활용", 
+        year: "2021.09 - 2021.11", 
+        provider: "건양대학교 취창업지원센터", 
+        summary: "‘앱 인벤터(App Inventor) 이용 컴퓨터 사고 활용’ 교육을 이수하며 컴퓨팅 사고력과 기초 프로그래밍 역량을 키우고, 문제를 창의적으로 해결하는 능력을 배양할 수 있었습니다. 또한 앱 기획과 구현 과정을 경험하며 사용자 중심의 사고와 UI/UX에 대한 이해를 높였고, 디지털 도구 활용 능력과 협업 능력도 함께 향상시킬 수 있었습니다." 
       }
     ],
     certs: [
@@ -645,12 +710,51 @@ const App = () => {
                   </h3>
                   <div className="space-y-4">
                     {qualifications.awards.map((award, i) => (
-                      <div key={i} className="flex justify-between items-start p-6 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
-                        <div className="flex items-start gap-5">
-                          <div className="w-3 h-3 rounded-full bg-[#00C73C] mt-1.5 shrink-0"></div>
-                          <span className="font-bold text-[15px] text-[#1E293B] font-serif leading-snug" style={{ wordBreak: 'keep-all' }}>{award.title}</span>
-                        </div>
-                        <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans shrink-0 ml-4 mt-1">{award.year}</span>
+                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
+                        <button 
+                          onClick={() => setExpandedAward(expandedAward === i ? null : i)}
+                          className="w-full flex justify-between items-start p-6 text-left"
+                        >
+                          <div className="flex items-start gap-5">
+                            <div className={`w-3 h-3 rounded-full mt-1.5 shrink-0 transition-colors ${expandedAward === i ? 'bg-[#00A9E0]' : 'bg-[#00C73C]'}`}></div>
+                            <span className="font-bold text-[15px] text-[#1E293B] font-serif leading-snug" style={{ wordBreak: 'keep-all' }}>{award.title}</span>
+                          </div>
+                          <div className="flex items-center gap-4 shrink-0 ml-4 mt-1">
+                            <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans">{award.year}</span>
+                            <ChevronDown size={16} className={`text-[#94A3B8] transition-transform duration-300 ${expandedAward === i ? 'rotate-180' : ''}`} />
+                          </div>
+                        </button>
+                        <AnimatePresence>
+                          {expandedAward === i && (
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <div className="px-11 pb-8 pt-2 space-y-4 border-t border-[#E2E8F0]/50">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[13px]">
+                                  <div>
+                                    <p className="text-[#94A3B8] font-bold mb-1 uppercase tracking-tighter">연계/소속기관</p>
+                                    <p className="text-[#475569] font-medium">{award.organization}</p>
+                                  </div>
+                                  <div>
+                                    <p className="text-[#94A3B8] font-bold mb-1 uppercase tracking-tighter">수행 기간</p>
+                                    <p className="text-[#475569] font-medium">{award.period}</p>
+                                  </div>
+                                </div>
+                                <div>
+                                  <p className="text-[#94A3B8] font-bold mb-1 uppercase tracking-tighter">주요 역할</p>
+                                  <p className="text-[#475569] font-medium">{award.role}</p>
+                                </div>
+                                <div>
+                                  <p className="text-[#94A3B8] font-bold mb-1 uppercase tracking-tighter">업무 성과</p>
+                                  <p className="text-[#475569] leading-relaxed font-medium" style={{ wordBreak: 'keep-all' }}>{award.achievement}</p>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     ))}
                   </div>
@@ -662,12 +766,36 @@ const App = () => {
                   </h3>
                   <div className="space-y-5">
                     {qualifications.activities.map((act, i) => (
-                      <div key={i} className="p-7 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] flex justify-between items-start hover:shadow-md transition-all">
-                        <div style={{ wordBreak: 'keep-all' }}>
-                          <p className="font-bold text-[#1E293B] text-[16px] mb-2 font-serif">{act.title}</p>
-                          <p className="text-[13px] text-[#64748B] font-medium leading-relaxed font-serif">{act.desc}</p>
-                        </div>
-                        <span className="text-[11px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm shrink-0 ml-6 tracking-tighter font-sans">{act.period}</span>
+                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
+                        <button 
+                          onClick={() => setExpandedActivity(expandedActivity === i ? null : i)}
+                          className="w-full flex justify-between items-start p-7 text-left"
+                        >
+                          <div style={{ wordBreak: 'keep-all' }}>
+                            <p className="font-bold text-[#1E293B] text-[16px] mb-2 font-serif">{act.title}</p>
+                            <div className="flex items-center gap-3">
+                                <span className="text-[11px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm tracking-tighter font-sans">{act.period}</span>
+                                <span className="text-[11px] font-bold text-[#64748B] font-sans">({act.duration})</span>
+                            </div>
+                          </div>
+                          <ChevronDown size={18} className={`text-[#94A3B8] transition-transform duration-300 mt-1 ${expandedActivity === i ? 'rotate-180' : ''}`} />
+                        </button>
+                        <AnimatePresence>
+                          {expandedActivity === i && (
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <div className="px-7 pb-8 pt-0">
+                                <p className="text-[14px] text-[#475569] font-medium leading-relaxed bg-white p-6 rounded-2xl border border-[#E2E8F0] shadow-inner font-serif" style={{ wordBreak: 'keep-all' }}>
+                                  {act.desc}
+                                </p>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     ))}
                   </div>
@@ -699,17 +827,38 @@ const App = () => {
                   <h3 className="text-2xl font-serif mb-10 flex items-center gap-4 text-[#1E293B] font-bold">
                     <BookOpen className="text-[#00C73C]" size={26} /> 직무 교육
                   </h3>
-                  <div className="space-y-8">
+                  <div className="space-y-6">
                     {qualifications.trainings.map((train, i) => (
-                      <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group hover:border-[#00C73C] transition-all">
-                        <div className="flex items-center justify-between mb-5">
-                          <p className="font-bold text-[#1E293B] text-lg font-serif" style={{ wordBreak: 'keep-all' }}>{train.title}</p>
-                          <span className="text-[11px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium">{train.year}</span>
-                        </div>
-                        <p className="text-[11px] text-[#64748B] font-bold uppercase mb-5 tracking-widest font-serif">{train.provider}</p>
-                        <p className="text-[14px] text-[#475569] font-medium leading-relaxed bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-inner font-serif" style={{ wordBreak: 'keep-all' }}>
-                          {train.summary}
-                        </p>
+                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group hover:border-[#00C73C] transition-all">
+                        <button 
+                          onClick={() => setExpandedTraining(expandedTraining === i ? null : i)}
+                          className="w-full flex justify-between items-start p-8 text-left"
+                        >
+                          <div className="flex-1" style={{ wordBreak: 'keep-all' }}>
+                            <div className="flex items-center justify-between mb-4">
+                              <p className="font-bold text-[#1E293B] text-lg font-serif">{train.title}</p>
+                              <span className="text-[11px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium shrink-0 ml-4">{train.year}</span>
+                            </div>
+                            <p className="text-[11px] text-[#64748B] font-bold uppercase tracking-widest font-serif">{train.provider}</p>
+                          </div>
+                          <ChevronDown size={20} className={`text-[#94A3B8] transition-transform duration-300 mt-1 ml-4 ${expandedTraining === i ? 'rotate-180' : ''}`} />
+                        </button>
+                        <AnimatePresence>
+                          {expandedTraining === i && (
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <div className="px-8 pb-8 pt-0">
+                                <p className="text-[14px] text-[#475569] font-medium leading-relaxed bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-inner font-serif" style={{ wordBreak: 'keep-all' }}>
+                                  {train.summary}
+                                </p>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     ))}
                   </div>
