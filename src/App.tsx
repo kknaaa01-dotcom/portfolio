@@ -56,6 +56,8 @@ const App = () => {
   const [expandedAward, setExpandedAward] = useState(null);
   const [expandedActivity, setExpandedActivity] = useState(null);
   const [expandedTraining, setExpandedTraining] = useState(null);
+  const [expandedSkill, setExpandedSkill] = useState(null);
+  const [selectedImageUrl, setSelectedImageUrl] = useState(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -216,12 +218,54 @@ const App = () => {
   ];
 
   const skills = [
-    { name: "SQL (Redash)", IconComp: Database, iconColor: "text-[#00A9E0]", desc: "직접 Query 추출 및 데이터 검증 가능" },
-    { name: "Excel/Google Sheets", IconComp: FileText, iconColor: "text-[#00C73C]", desc: "복잡한 손익 대시보드 및 자동화 시트 구축" },
-    { name: "Google Apps Script", IconComp: Code, iconColor: "text-[#10B981]", desc: "반복 행정 업무 자동화 시스템 설계" },
-    { name: "Python (RPA/Macro)", IconComp: Cpu, iconColor: "text-[#334155]", desc: "반복 업무 자동화 및 웹 데이터 크롤링 활용" },
-    { name: "협업 도구 (Notion/Slack)", IconComp: Layers, iconColor: "text-[#6366F1]", desc: "효율적인 커뮤니케이션 및 업무 문서화" },
-    { name: "디자인 (PS/GTQ)", IconComp: Camera, iconColor: "text-[#EC4899]", desc: "홍보물 기획 및 디자인 도구 활용" }
+    { 
+      name: "SQL (Redash)", 
+      IconComp: Database, 
+      iconColor: "text-[#00A9E0]", 
+      desc: "직접 Query 추출 및 데이터 검증 가능",
+      details: "Redash를 활용하여 비즈니스 지표 확인에 필요한 데이터를 직접 SQL 쿼리로 추출하고 정합성을 검증합니다. 실시간 대시보드를 구축하여 사업부의 데이터 접근성을 높이고, 데이터 기반의 의사결정 체계를 지원합니다.",
+      image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/0aa1048a5e22c8fb9b6202c55cb39da9fc6100d4/sql.png"
+    },
+    { 
+      name: "Excel/Google Sheets", 
+      IconComp: FileText, 
+      iconColor: "text-[#00C73C]", 
+      desc: "복잡한 손익 대시보드 및 자동화 시트 구축",
+      details: "고급 함수와 피벗 테이블을 활용하여 복잡한 사업 손익 대시보드를 구축합니다. 데이터 시각화 도구를 연동하여 성과 지표를 직관적으로 관리하며, 대량의 데이터를 효율적으로 가공하여 보고서 작성 시간을 단축합니다.",
+      image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/0aa1048a5e22c8fb9b6202c55cb39da9fc6100d4/dashboard.png"
+    },
+    { 
+      name: "Google Apps Script", 
+      IconComp: Code, 
+      iconColor: "text-[#10B981]", 
+      desc: "반복 행정 업무 자동화 시스템 설계",
+      details: "Google Workspace 환경에서 Apps Script를 활용하여 반복적인 행정 프로세스를 자동화합니다. 설문지 데이터 자동 분류, 맞춤형 이메일 자동 발송, 캘린더 연동 시스템 등을 구축하여 팀의 운영 효율을 극대화합니다.",
+      image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/0aa1048a5e22c8fb9b6202c55cb39da9fc6100d4/gas.png"
+    },
+    { 
+      name: "Python (RPA/Macro)", 
+      IconComp: Cpu, 
+      iconColor: "text-[#334155]", 
+      desc: "반복 업무 자동화 및 웹 데이터 크롤링 활용",
+      details: "영업 담당자들이 효율적으로 현장 업무를 수행할 수 있도록 맞춤형 자동화 도구를 개발했습니다. 영업 리드를 직접 분배하여 관리하는 시스템을 구축하고, 네이버 지도에 리드를 자동으로 북마크하는 매크로를 제작했습니다. 또한 네이버 지도상에서 '예약 가능', '단체 손님 가능' 등의 상세 정보를 크롤링하는 매크로를 통해 영업 현장에 필요한 핵심 데이터를 실시간으로 지원했습니다.",
+      image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/2715efa3fefe61981a2c7b914a41c7dcbdb3efda/%EB%A7%A4%ED%81%AC%EB%A1%9C%20%ED%81%AC%EB%A1%A4%EB%A7%81.png"
+    },
+    { 
+      name: "협업 도구 (Notion/Slack)", 
+      IconComp: Layers, 
+      iconColor: "text-[#6366F1]", 
+      desc: "효율적인 커뮤니케이션 및 업무 문서화",
+      details: "Notion을 활용하여 팀 내 업무 매뉴얼과 프로젝트 지식 베이스를 체계적으로 구축합니다. Slack 워크플로우를 설계하여 실시간 알림 및 보고 체계를 자동화하고, 투명한 정보 공유 문화를 조성하여 협업 리소스를 절감합니다.",
+      image: "https://raw.githubusercontent.com/kknaaa01-dotcom/portfolio/0aa1048a5e22c8fb9b6202c55cb39da9fc6100d4/%EB%85%B8%EC%85%98.png"
+    },
+    { 
+      name: "디자인 (PS/GTQ)", 
+      IconComp: Camera, 
+      iconColor: "text-[#EC4899]", 
+      desc: "홍보물 기획 및 디자인 도구 활용",
+      details: "신규 발굴한 잠재 고객 리드를 대상으로 포토샵을 활용하여 오프라인 DM(Direct Mail) 광고 홍보물을 직접 기획 및 제작했습니다. 브랜드의 핵심 가치를 시각적으로 극대화한 디자인을 통해 영업 광고물을 대량 발송함으로써 신규 리드 전환율을 높이고, 영업 현장의 효율적인 마케팅 지원을 완수했습니다.",
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800"
+    }
   ];
 
   const qualifications = {
@@ -633,16 +677,70 @@ const App = () => {
                 <h3 className="text-4xl font-serif text-[#1E293B] font-bold">디지털 및 데이터 활용 역량</h3>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              <div className="grid grid-cols-1 gap-6 mb-16">
                 {skills.map((skill, i) => (
-                  <div key={i} className="p-8 bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] flex items-center gap-8 hover:bg-white transition-all hover:shadow-2xl group">
-                    <div className="p-5 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform border border-[#E2E8F0] group-hover:border-[#00C73C]">
-                      <skill.IconComp className={skill.iconColor} size={30} strokeWidth={2.5} />
-                    </div>
-                    <div className="flex-1">
-                      <span className="font-serif font-bold text-[#1E293B] text-2xl block mb-1.5">0{i+1}. {skill.name}</span>
-                      <p className="text-[#64748B] text-[14px] font-medium leading-relaxed font-serif">{skill.desc}</p>
-                    </div>
+                  <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-2xl hover:border-[#00C73C]/30 transition-all duration-300 group/skill">
+                    <button 
+                      onClick={() => setExpandedSkill(expandedSkill === i ? null : i)}
+                      className="w-full flex items-center gap-8 p-8 text-left cursor-pointer hover:bg-white transition-colors"
+                    >
+                      <div className="p-5 bg-white rounded-2xl shadow-sm group-hover/skill:scale-110 transition-transform border border-[#E2E8F0] group-hover/skill:border-[#00C73C]">
+                        <skill.IconComp className={skill.iconColor} size={30} strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1">
+                        <span className="font-serif font-bold text-[#1E293B] text-2xl block mb-1.5 group-hover/skill:text-[#00C73C] transition-colors">0{i+1}. {skill.name}</span>
+                        <p className="text-[#64748B] text-[14px] font-medium leading-relaxed font-serif">{skill.desc}</p>
+                      </div>
+                      <ChevronDown size={24} className={`text-[#94A3B8] transition-all duration-300 group-hover/skill:text-[#00C73C] group-hover/skill:translate-y-0.5 ${expandedSkill === i ? 'rotate-180 text-[#00C73C]' : ''}`} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {expandedSkill === i && (
+                        <motion.div 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "circOut" }}
+                        >
+                          <div className="px-8 pb-10 pt-2 border-t border-[#F1F5F9]">
+                            <div className="flex flex-col md:flex-row gap-8 items-start">
+                              <div className="flex-1 space-y-6">
+                                <div className="bg-white p-8 rounded-[2rem] border border-[#E2E8F0] shadow-inner">
+                                  <h4 className="text-[11px] font-black text-[#94A3B8] uppercase tracking-widest mb-4 flex items-center gap-2">
+                                    <Zap size={14} className="text-[#00C73C]" fill="currentColor" /> 상세 활용 사례 및 성과
+                                  </h4>
+                                  <p className="text-[#475569] text-[15px] leading-relaxed font-medium font-serif" style={{ wordBreak: 'keep-all' }}>
+                                    {skill.details}
+                                  </p>
+                                </div>
+                              </div>
+                              {skill.image && (
+                                <div 
+                                  className="w-full md:w-96 h-64 rounded-[2rem] overflow-hidden border-2 border-[#F1F5F9] shadow-md shrink-0 group/img relative cursor-zoom-in"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setSelectedImageUrl(skill.image);
+                                  }}
+                                >
+                                  <img 
+                                    src={skill.image} 
+                                    alt={skill.name} 
+                                    className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-700"
+                                    referrerPolicy="no-referrer"
+                                  />
+                                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors flex items-center justify-center">
+                                    <Zap size={24} className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+                                  </div>
+                                  <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold opacity-0 group-hover/img:opacity-100 transition-opacity">
+                                    클릭하여 확대
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ))}
               </div>
@@ -710,18 +808,18 @@ const App = () => {
                   </h3>
                   <div className="space-y-4">
                     {qualifications.awards.map((award, i) => (
-                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
+                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-xl hover:border-[#00A9E0]/30 transition-all duration-300 group/award">
                         <button 
                           onClick={() => setExpandedAward(expandedAward === i ? null : i)}
-                          className="w-full flex justify-between items-start p-6 text-left"
+                          className="w-full flex justify-between items-start p-6 text-left cursor-pointer hover:bg-white transition-colors"
                         >
                           <div className="flex items-start gap-5">
-                            <div className={`w-3 h-3 rounded-full mt-1.5 shrink-0 transition-colors ${expandedAward === i ? 'bg-[#00A9E0]' : 'bg-[#00C73C]'}`}></div>
-                            <span className="font-bold text-[15px] text-[#1E293B] font-serif leading-snug" style={{ wordBreak: 'keep-all' }}>{award.title}</span>
+                            <div className={`w-3 h-3 rounded-full mt-1.5 shrink-0 transition-all duration-300 ${expandedAward === i ? 'bg-[#00A9E0] scale-125' : 'bg-[#00C73C] group-hover/award:bg-[#00A9E0]'}`}></div>
+                            <span className="font-bold text-[15px] text-[#1E293B] font-serif leading-snug group-hover/award:text-[#00A9E0] transition-colors" style={{ wordBreak: 'keep-all' }}>{award.title}</span>
                           </div>
                           <div className="flex items-center gap-4 shrink-0 ml-4 mt-1">
                             <span className="text-[11px] font-bold text-[#94A3B8] tracking-wider font-sans">{award.year}</span>
-                            <ChevronDown size={16} className={`text-[#94A3B8] transition-transform duration-300 ${expandedAward === i ? 'rotate-180' : ''}`} />
+                            <ChevronDown size={16} className={`text-[#94A3B8] transition-all duration-300 group-hover/award:text-[#00A9E0] group-hover/award:translate-y-0.5 ${expandedAward === i ? 'rotate-180 text-[#00A9E0]' : ''}`} />
                           </div>
                         </button>
                         <AnimatePresence>
@@ -766,19 +864,19 @@ const App = () => {
                   </h3>
                   <div className="space-y-5">
                     {qualifications.activities.map((act, i) => (
-                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-md transition-all">
+                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] hover:shadow-xl hover:border-[#10B981]/30 transition-all duration-300 group/activity">
                         <button 
                           onClick={() => setExpandedActivity(expandedActivity === i ? null : i)}
-                          className="w-full flex justify-between items-start p-7 text-left"
+                          className="w-full flex justify-between items-start p-7 text-left cursor-pointer hover:bg-white transition-colors"
                         >
                           <div style={{ wordBreak: 'keep-all' }}>
-                            <p className="font-bold text-[#1E293B] text-[16px] mb-2 font-serif">{act.title}</p>
+                            <p className="font-bold text-[#1E293B] text-[16px] mb-2 font-serif group-hover/activity:text-[#10B981] transition-colors">{act.title}</p>
                             <div className="flex items-center gap-3">
-                                <span className="text-[11px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm tracking-tighter font-sans">{act.period}</span>
+                                <span className="text-[11px] font-bold text-[#00A300] bg-[#F0FDF4] px-3 py-1 rounded-full shadow-sm tracking-tighter font-sans group-hover/activity:bg-[#10B981] group-hover/activity:text-white transition-all">{act.period}</span>
                                 <span className="text-[11px] font-bold text-[#64748B] font-sans">({act.duration})</span>
                             </div>
                           </div>
-                          <ChevronDown size={18} className={`text-[#94A3B8] transition-transform duration-300 mt-1 ${expandedActivity === i ? 'rotate-180' : ''}`} />
+                          <ChevronDown size={18} className={`text-[#94A3B8] transition-all duration-300 mt-1 group-hover/activity:text-[#10B981] group-hover/activity:translate-y-0.5 ${expandedActivity === i ? 'rotate-180 text-[#10B981]' : ''}`} />
                         </button>
                         <AnimatePresence>
                           {expandedActivity === i && (
@@ -829,19 +927,19 @@ const App = () => {
                   </h3>
                   <div className="space-y-6">
                     {qualifications.trainings.map((train, i) => (
-                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group hover:border-[#00C73C] transition-all">
+                      <div key={i} className="overflow-hidden bg-[#F8FAFC] rounded-[2.5rem] border border-[#E2E8F0] group/training hover:border-[#00C73C]/30 hover:shadow-xl transition-all duration-300">
                         <button 
                           onClick={() => setExpandedTraining(expandedTraining === i ? null : i)}
-                          className="w-full flex justify-between items-start p-8 text-left"
+                          className="w-full flex justify-between items-start p-8 text-left cursor-pointer hover:bg-white transition-colors"
                         >
                           <div className="flex-1" style={{ wordBreak: 'keep-all' }}>
                             <div className="flex items-center justify-between mb-4">
-                              <p className="font-bold text-[#1E293B] text-lg font-serif">{train.title}</p>
-                              <span className="text-[11px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium shrink-0 ml-4">{train.year}</span>
+                              <p className="font-bold text-[#1E293B] text-lg font-serif group-hover/training:text-[#00C73C] transition-colors">{train.title}</p>
+                              <span className="text-[11px] font-bold text-[#00C73C] bg-[#DCFCE7] px-4 py-1.5 rounded-full tracking-wider font-sans font-medium shrink-0 ml-4 group-hover/training:bg-[#00C73C] group-hover/training:text-white transition-all">{train.year}</span>
                             </div>
                             <p className="text-[11px] text-[#64748B] font-bold uppercase tracking-widest font-serif">{train.provider}</p>
                           </div>
-                          <ChevronDown size={20} className={`text-[#94A3B8] transition-transform duration-300 mt-1 ml-4 ${expandedTraining === i ? 'rotate-180' : ''}`} />
+                          <ChevronDown size={20} className={`text-[#94A3B8] transition-all duration-300 mt-1 ml-4 group-hover/training:text-[#00C73C] group-hover/training:translate-y-0.5 ${expandedTraining === i ? 'rotate-180 text-[#00C73C]' : ''}`} />
                         </button>
                         <AnimatePresence>
                           {expandedTraining === i && (
@@ -913,6 +1011,40 @@ const App = () => {
                 </button>
               </div>
             </div>
+          </div>
+        )}
+        {/* Skill Image Lightbox */}
+        {selectedImageUrl && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 md:p-10">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-[#1E293B]/90 backdrop-blur-md"
+              onClick={() => setSelectedImageUrl(null)}
+            ></motion.div>
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center"
+            >
+              <button 
+                onClick={() => setSelectedImageUrl(null)}
+                className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors flex items-center gap-2 font-bold text-sm"
+              >
+                <span>닫기</span>
+                <Zap size={20} />
+              </button>
+              <div className="w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-white/10 shadow-2xl bg-white/5">
+                <img 
+                  src={selectedImageUrl} 
+                  alt="Full Size View" 
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </motion.div>
           </div>
         )}
       </div>
